@@ -1,0 +1,73 @@
+._courses-item {
+    position: relative;
+    border-radius: 20rpx;
+    background-color: var(--section-bg);
+    box-shadow: 0 6rpx 16rpx rgba(0,0,0,.04);
+    overflow: hidden;
+    transform: translateZ(0);
+    backdrop-filter: var(--block-blur-6);
+}
+
+._courses-item ._cover {
+    width: 100%;
+    height: 320rpx;
+    background-color: var(--block-d-004);
+    overflow: hidden;
+    position: relative;
+}
+
+._courses-item ._cover>._image,._courses-item ._cover>._video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+._courses-item ._video-play {
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+    font-size: 80rpx;
+    color: #fff;
+    text-shadow: 0 0 10rpx rgba(0,0,0,.2);
+}
+
+._courses-item ._info {
+    padding: 20rpx;
+}
+
+._courses-item ._title {
+    color: var(--light-20);
+    font-size: 32rpx;
+    font-weight: bold;
+    letter-spacing: .06em;
+    line-height: 1.4;
+    margin-bottom: 6rpx;
+}
+
+._courses-item ._intro {
+    font-size: 28rpx;
+    line-height: 1.4;
+    color: var(--light-60);
+}
+
+._courses-item ._bottom {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+._courses-item ._sys {
+    font-size: 28rpx;
+    align-self: center;
+}
+
+._courses-item ._btn {
+    flex-shrink: 0;
+    align-self: flex-end;
+    margin-left: auto;
+    background-color: var(--theme-color);
+    color: var(--theme-color-front);
+    font-size: 30rpx;
+    line-height: 60rpx;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+}

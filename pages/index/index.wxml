@@ -1,0 +1,17 @@
+<ui-page id="ui-page">
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}"></ui-status>
+    <ui-status bindemptybtntap="storesLoad" binderrorbtntap="storesLoad" status="{{_status.stores}}" wx:if="{{needSelectStore}}">
+        <view class="_top-holder"></view>
+        <view class="common-immersive-list">
+            <view bindtap="selectStore" class="common-immersive-item" data-index="{{index}}" hoverClass="_hover" wx:for="{{stores}}" wx:key="{{item.id}}">
+                <ui-img class="_image" mode="aspectFill" src="{{item.image}}"></ui-img>
+                <view class="_info">
+                    <view class="_title">{{item.name}}</view>
+                    <view class="_description iconfont icon-ui-address">{{item.address}}</view>
+                </view>
+            </view>
+        </view>
+        <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.stores}}"></ui-pager-status>
+        <ui-ipx></ui-ipx>
+    </ui-status>
+</ui-page>

@@ -1,0 +1,21 @@
+<view bindtouchend="onTouchEnd" bindtouchmove="onTouchMove" class="ui-nav-wrap" style="background-color: {{useConfig.backgroundColor}}">
+    <view class="ui-nav-menu-wrap" wx:if="{{menuShow}}">
+        <view class="ui-nav-menu">
+            <view bindtap="targetActionRun" class="ui-nav-menu-item {{menuHoverItemIndex===index?'_hover':''}}" data-action="{{item.action}}" id="ui-nav-menu-item_{{index}}" wx:for="{{menuItems}}" wx:key="{{index}}">
+                <i class="_icon {{useConfig.iconCustom?'':'iconfont icon-'}}{{item.icon}}"></i>
+                <text class="_label">{{item.label}}</text>
+            </view>
+        </view>
+        <ui-ipx></ui-ipx>
+    </view>
+    <view class="ui-nav" style="-webkit-backdrop-filter: {{useConfig.filter}}; backdrop-filter: {{useConfig.filter}};">
+        <view bindtap="click" bindtouchstart="onTouchStart" class="ui-nav-grid {{item.isActive?'_active':''}} {{item.items.length?'_has-menu':''}}" data-index="{{index}}" wx:for="{{items}}" wx:key="{{index}}">
+            <view class="ui-nav-item">
+                <image class="_image" mode="aspectFit" src="{{item.image}}" wx:if="{{item.image}}"></image>
+                <i class="_icon {{useConfig.iconCustom?'':'iconfont icon-'}}{{item.icon}}" style="color: {{item.isActive?item.activeIconColor||useConfig.activeIconColor:item.iconColor||useConfig.iconColor}}" wx:elif="{{item.icon}}"></i>
+                <text class="_label" style="color: {{item.isActive?item.activeTextColor||useConfig.activeTextColor:item.textColor||useConfig.textColor}}" wx:if="{{!(useConfig.hiddenLabel||item.hiddenLabel)}}">{{item.label}}</text>
+            </view>
+        </view>
+    </view>
+    <ui-ipx></ui-ipx>
+</view>

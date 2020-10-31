@@ -1,0 +1,18 @@
+._member-level {
+    display: flex;
+    align-items: center;
+    padding: 0 .7em;
+    line-height: 1.6em;
+    border-radius: 0.8em;
+    color: var(--member-level-front, var(--theme-color-front));
+    background-color: var(--member-level-bg, var(--theme-color));
+}
+
+._member-level>._icon {
+    width: 1.2em;
+    height: 1.2em;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.4em;
+}

@@ -1,0 +1,55 @@
+<ui-page id="ui-page">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{_status.main.ready}}">
+            <view class="main-view">
+                <ui-img class="coach-avatar" mode="aspectFill" src="{{sc.coach.avatar}}"></ui-img>
+                <view class="header-top">
+                    <ui-img class="course-image" mode="aspectFill" src="{{sc.course.image}}"></ui-img>
+                    <view bindtap="targetActionRun" class="course-name" data-action=">course?id={{sc.course.id}}">{{sc.course.name}}<i class="iconfont icon-ui-block-next"></i>
+                    </view>
+                </view>
+                <view class="sc-section info-view">
+                    <ui-line action=">coach?id={{sc.coach.id}}" class="ui-info" label="教练" value="{{sc.coach.name}}" valueAlign="left"></ui-line>
+                    <ui-line class="ui-info" label="价格" valueAlign="left">
+                        <ui-price class="course-price" value="{{sc.price}}"></ui-price>
+                    </ui-line>
+                    <view class="clear-float"></view>
+                    <ui-line action=">store?id={{sc.store.id}}" class="ui-info" label="上课地点" value="{{sc.store.name}}"></ui-line>
+                    <ui-line class="ui-info" label="课程时间">
+                        <view class="course-time">{{utils.dateRangeFormat(sc.start,sc.end,'M月d日 hh:mm','-')}}</view>
+                    </ui-line>
+                    <ui-line class="ui-info" label="课程人数" value="{{sc.orderNum}} / {{sc.orderMax}}"></ui-line>
+                    <ui-line class="ui-info" label="报名时间" value="{{utils.dateRangeFormat(sc.orderStart,sc.orderEnd,'M月d日  hh:mm',' 至 ')}}"></ui-line>
+                </view>
+                <view class="sc-section order-view" wx:if="{{sc.myOrderID}}">
+                    <ui-line action=">order?id={{sc.myOrderID}}" class="order-line" icon="ui-order" label="{{userData.nickName}}, 你已报名" value="查看订单"></ui-line>
+                </view>
+                <view class="sc-section queue-view" wx:elif="{{sc.myQueueID}}">
+                    <i class="iconfont icon-schedule-queue"></i>
+                    <text>已满员，你已处于排队队列中</text>
+                </view>
+                <view class="sc-section queue-view" wx:elif="{{isFull&&processing&&sc.queueEnabled}}">
+                    <i class="iconfont icon-schedule-queue"></i>
+                    <text>已满员，但你可以排队，已有 {{sc.queueNum}} 人排队</text>
+                </view>
+                <view class="sc-section">
+                    <view class="countdown-view" wx:if="{{showCountdown}}">
+                        <view class="_label">距离报名{{wait?'开始':'截止'}}还剩</view>
+                        <view class="_time">{{countdownText}}</view>
+                    </view>
+                    <support-table allowed="{{sc.course}}"></support-table>
+                </view>
+                <view class="common-bottom-btn-holder"></view>
+            </view>
+            <form reportSubmit bindsubmit="commit" class="bottom-wrap common-bottom-btn-wrap" slot="append" wx:if="{{sc}}">
+                <button class="_clear-button-style common-bottom-btn {{enterDisabled?'_disabled':'_hover-brightness-btn'}}" formType="submit" hoverClass="_hover">{{enterText}}</button>
+                <ui-ipx></ui-ipx>
+            </form>
+            <ui-ipx></ui-ipx>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

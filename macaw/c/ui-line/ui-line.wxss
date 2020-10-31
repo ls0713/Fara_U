@@ -1,0 +1,99 @@
+.ui-line {
+    height: 100%;
+    padding: var(--ui-line-padding);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    transition: background-color .2s ease,color .2s ease;
+    position: relative;
+}
+
+.ui-line:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--ui-line-dividing-left);
+    right: var(--ui-line-dividing-right);
+    border-bottom: var(--ui-line-dividing);
+}
+
+.ui-line._hover {
+    background-color: var(--block-d-002);
+}
+
+.ui-line>._icon {
+    font-weight: normal;
+    padding-right: var(--ui-line-gap);
+    font-size: var(--ui-line-icon-size, 1.4em);
+    color: var(--ui-line-icon-color);
+    color: var(--icon-decolor, var(--icon-color, var(--ui-line-icon-color)));
+}
+
+.ui-line>._left {
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    padding-right: var(--ui-line-gap);
+    margin-right: 20rpx;
+    font-size: var(--ui-line-label-size);
+    font-weight: var(--ui-line-label-weight);
+    color: var(--ui-line-label-color);
+    transition: color .2s ease;
+}
+
+.ui-line._hover>._left {
+    color: var(--ui-line-label-color-hover);
+}
+
+.ui-line>._left>._label {
+    min-width: var(--ui-line-label-min-width);
+    max-width: var(--ui-line-label-max-width);
+}
+
+.ui-line>._right {
+    flex: 1 1 0%;
+    font-weight: normal;
+    padding-right: var(--ui-line-gap);
+    display: flex;
+    align-items: center;
+    font-size: var(--ui-line-value-size);
+    font-weight: var(--ui-line-value-weight);
+    color: var(--ui-line-value-color);
+    justify-content: var(--ui-line-value-justify);
+    text-align: var(--ui-line-value-align);
+    overflow: hidden;
+}
+
+.ui-line>._right>._value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ui-line>._right._align-left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.ui-line>._right._align-right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.ui-line>._right:last-child {
+    padding-right: 0;
+}
+
+.ui-line>._next {
+    flex-shrink: 0;
+    align-self: center;
+    font-weight: normal;
+    font-size: var(--ui-line-next-size);
+    color: var(--ui-line-next-color);
+    transition: color .2s ease;
+}
+
+.ui-line._hover>._next {
+    color: var(--ui-line-next-color-hover);
+}

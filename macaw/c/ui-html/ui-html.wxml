@@ -1,0 +1,8 @@
+<view class="ui-html">
+    <block wx:for="{{useNodes}}" wx:key="{{index}}">
+        <rich-text class="_node-rich" nodes="{{item}}" wx:if="{{item.length}}"></rich-text>
+        <ui-img bindtap="previewImages" class="_node-img" data-src="{{item.attrs.src}}" mode="widthFix" src="{{item.attrs.src}}" style="{{item.attrs.style}}; width: 100%" wx:elif="{{item.name==='image'}}"></ui-img>
+        <ui-audio class="_node-audio" src="{{item.attrs.src}}" wx:elif="{{item.name==='audio'}}"></ui-audio>
+        <ui-video class="_node-video" poster="{{item.attrs.poster}}" src="{{item.attrs.src}}" wx:elif="{{item.name==='video'}}"></ui-video>
+    </block>
+</view>

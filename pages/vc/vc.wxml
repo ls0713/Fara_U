@@ -1,0 +1,94 @@
+<ui-page id="ui-page">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{vc}}">
+            <view class="player-info" slot="top-append" wx:if="{{vc.videos[playIndex]}}">
+                <view class="_title">
+                    <i class="iconfont icon-player-video"></i>{{vc.videos[playIndex].title}}</view>
+                <view class="_speaker" wx:if="{{vc.videos[playIndex].speaker}}">
+                    <i class="iconfont icon-player-speaker">{{vc.videos[playIndex].speaker}}</i>
+                </view>
+            </view>
+            <view class="main-view">
+                <view class="player-box">
+                    <video autoplay="{{autoPlay}}" bindended="onPlayerEnded" bindtimeupdate="onPlayerTimeUpdate" class="player-video" data-index="{{playIndex}}" id="player" initialTime="{{playTime}}" poster="{{vc.videos[playIndex].poster}}" src="{{vc.purchased||vc.videos[playIndex].freeSec?vc.videos[playIndex].src:''}}" title="{{vc.videos[playIndex].title}}" wx:if="{{vc.videos[playIndex]}}"></video>
+                    <view class="player-empty" wx:else>
+                        <ui-img class="_cover" mode="aspectFill" src="{{vc.cover}}"></ui-img>
+                        <view class="_tip">{{vc.videos.length?'未找到指定视频，请于视频列表选择视频':'视频列表为空'}}</view>
+                    </view>
+                    <block wx:if="{{vc.price>0&&!vc.purchased}}">
+                        <block wx:if="{{vc.videos[playIndex].freeSec}}">
+                            <view class="player-buy" wx:if="{{playerBuyTip}}">
+                                <view>试看已结束</view>
+                                <view wx:if="{{!iosDisabled}}">购买后可观看完整视频</view>
+                            </view>
+                            <view class="player-free" wx:else>可试看前{{vc.videos[playIndex].freeSec}}秒{{!iosDisabled?'，购买后可观看完整视频':''}}</view>
+                        </block>
+                        <view class="player-buy" wx:else>
+                            <view>你还未拥有此视频课程</view>
+                            <view wx:if="{{!iosDisabled}}">购买后即可观看</view>
+                        </view>
+                    </block>
+                </view>
+                <ui-tabs binditemtap="tabTap" class="view-tabs" current="{{currentView}}" items="{{viewGroup}}">
+                    <view class="view-tabs-indicator"></view>
+                </ui-tabs>
+                <view class="sub-view">
+                    <swiper bindchange="onResultSwiperChange" class="view-swiper" currentItemId="{{currentView}}" duration="300">
+                        <swiper-item itemId="info">
+                            <scroll-view scrollY class="view-scroll">
+                                <view class="vc-info">
+                                    <view class="vc-title">{{vc.title}}</view>
+                                    <view class="vc-statistics">
+                                        <view>{{vc.videos.length}} 节课程</view>
+                                        <view>{{vc.sold}} 人参与</view>
+                                        <view>50分钟</view>
+                                    </view>
+                                    <view class="vc-intro">{{vc.intro}}</view>
+                                </view>
+                                <ui-html class="vc-details" nodes="{{vc.details}}"></ui-html>
+                                <ui-ipx></ui-ipx>
+                            </scroll-view>
+                        </swiper-item>
+                        <swiper-item itemId="list">
+                            <scroll-view scrollY class="view-scroll">
+                                <view class="video-list">
+                                    <view bindtap="onVideoTap" class="video-item {{playIndex===index?'_active':''}}" data-index="{{index}}" hoverClass="_hover" wx:for="{{vc.videos}}" wx:key="{{item.id}}">
+                                        <view class="_index">{{index+1}}</view>
+                                        <ui-img lazyLoad class="_cover" mode="aspectFill" src="{{item.cover}}"></ui-img>
+                                        <view class="_info">
+                                            <view class="_title">{{item.title}}</view>
+                                            <view class="_bottom">
+                                                <view class="_speaker">
+                                                    <i class="iconfont icon-player-speaker"></i>{{item.speaker}}</view>
+                                                <view class="_free-flag" wx:if="{{item.freeSec}}">试看{{item.freeSec}}秒</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <ui-ipx></ui-ipx>
+                            </scroll-view>
+                        </swiper-item>
+                    </swiper>
+                </view>
+                <view class="bottom-panel">
+                    <view bindtap="toggleFavorited" class="bottom-btn">
+                        <i class="iconfont icon-ui-favorites {{vc.favorited?'_active':''}}"></i>
+                    </view>
+                    <button class="bottom-btn _clear-button-style" openType="share">
+                        <i class="iconfont icon-ui-share"></i>
+                    </button>
+                    <view class="purchased-tip" wx:if="{{vc.price==0}}">此视频课程免费</view>
+                    <view class="purchased-tip" wx:elif="{{vc.purchased}}">你已拥有此视频课程</view>
+                    <view class="purchased-tip" wx:elif="{{iosDisabled}}">无法为iOS端提供服务</view>
+                    <view bindtap="onBuyTap" class="buy-btn common-btn _hover-brightness-btn" hoverClass="_hover" wx:else>
+                        <text>立即购买</text>
+                        <ui-price value="{{vc.price}}"></ui-price>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

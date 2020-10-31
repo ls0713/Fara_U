@@ -1,0 +1,13 @@
+.ui-price {
+    font-family: "avanti";
+    letter-spacing: 0;
+}
+
+.ui-price-dec {
+    font-size: .8em;
+}
+
+.ui-price-symbol {
+    font-size: .7em;
+    margin-right: .1em;
+}

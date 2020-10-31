@@ -1,0 +1,46 @@
+.main-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-6);
+}
+
+.info-box {
+    margin-bottom: 20rpx;
+}
+
+.info-box .ui-info {
+    font-size: 30rpx;
+    --ui-line-label-size: 1em;
+    --ui-line-padding: 30rpx;
+    --ui-line-value-justify: flex-start;
+    --ui-line-value-align: left;
+    --ui-line-label-min-width: 3em;
+}
+
+.info-input {
+    flex: 1 1 0%;
+    padding: 0;
+}
+
+.info-unit {
+    font-size: .6em;
+    color: var(--light-60);
+}
+
+.info-picker {
+    height: 1em;
+    flex: 1 1 0%;
+}
+
+.info-image {
+    display: block;
+    width: 100rpx;
+    --ui-image-height: 100rpx;
+}
+
+.info-required {
+    margin-left: 10rpx;
+    color: red;
+}

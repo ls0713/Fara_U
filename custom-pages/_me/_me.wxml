@@ -1,0 +1,50 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <view class="user-simple" slot="titlebar-append">
+            <image class="_avatar" mode="aspectFit" src="{{userData.avatar}}"></image>
+            <view class="_name">{{userData.nickName}}</view>
+        </view>
+        <view class="_top-holder"></view>
+        <view bindtap="targetActionRun" class="user-view" data-action=">member">
+            <view class="user-box">
+                <image class="user-avatar" mode="aspectFit" src="{{userData.avatar}}"></image>
+                <view class="user-info">
+                    <view class="user-name">{{userData.nickName}}</view>
+                    <member-level class="user-level" levelId="{{userData.level}}"></member-level>
+                </view>
+            </view>
+            <view class="balance-box">
+                <view class="balance-label">余额</view>
+                <ui-price class="balance-value" value="{{userData.balance}}"></ui-price>
+            </view>
+        </view>
+        <view class="user-checkin {{commonStyles.iconDecolor?'':'_color'}}">
+            <view bindtap="targetActionRun" class="user-checkin-item _hover-brightness-btn" data-action=">check-in?type=sc" hoverClass="_hover">
+                <i class="_icon iconfont icon-ui-group"></i>
+                <view class="_label">我的团课</view>
+            </view>
+            <view bindtap="targetActionRun" class="user-checkin-item _hover-brightness-btn" data-action=">check-in?type=coach" hoverClass="_hover">
+                <i class="_icon iconfont icon-ui-diamond"></i>
+                <view class="_label">我的私教</view>
+            </view>
+        </view>
+        <view class="cardtype-section ui-entrance-section">
+            <ui-line action=">favorites" class="ui-entrance" icon="ui-favorites" iconColor="#ffe324" label="我的收藏"></ui-line>
+            <ui-line action=">orders" class="ui-entrance" icon="ui-order" iconColor="#d5433c" label="我的订单"></ui-line>
+            <ui-line action=">coupons" class="ui-entrance" icon="ui-coupon" iconColor="#60c765" label="优惠券"></ui-line>
+            <ui-line action=">personal" class="ui-entrance" icon="ui-information" iconColor="#2f77ef" label="个人信息"></ui-line>
+        </view>
+        <view class="cardtype-section ui-entrance-section" wx:if="{{userData.isAdmin}}">
+            <ui-line action=">write-off" class="ui-entrance" icon="ui-scan" iconColor="#4d4d4d" label="扫码核销"></ui-line>
+            <ui-line hover bindtap="updateConfig" class="ui-entrance" icon="ui-refresh" iconColor="#42b842" label="更新配置"></ui-line>
+        </view>
+        <view class="cardtype-section ui-entrance-section">
+            <ui-line next class="ui-entrance" icon="ui-service" iconColor="#a231d7" label="微信客服" openType="contact"></ui-line>
+            <ui-line nextIcon action=":callOrganizationTel" bindtap="callBusiness" class="ui-entrance" icon="ui-tel" iconColor="#668597" label="电话联系"></ui-line>
+            <ui-line action=">about" class="ui-entrance" icon="ui-about" iconColor="#31a6d7" label="关于我们"></ui-line>
+        </view>
+        <ui-copyright></ui-copyright>
+    </block>
+    <ui-login wx:else></ui-login>
+    <ui-nav-placeholder slot="append" wx:if="{{pageType==='main'}}"></ui-nav-placeholder>
+</ui-page>

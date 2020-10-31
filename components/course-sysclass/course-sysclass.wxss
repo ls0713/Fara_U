@@ -1,0 +1,18 @@
+._course-sysclass {
+    display: flex;
+    align-items: center;
+    padding: 0 .5em;
+    line-height: 1.6em;
+    border-radius: 0.2em;
+    color: var(--theme-color-front);
+    background-color: var(--theme-color);
+}
+
+._course-sysclass>._icon {
+    width: 1.2em;
+    height: 1.2em;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.4em;
+}

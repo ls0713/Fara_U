@@ -1,0 +1,23 @@
+<view catchtouchmove="noopFunc" class="ui-page {{utils.getClassNameByMode(useConfig.mode)}}" style="--top-real-height:{{topHeightPx}};{{useConfig.cssVars}};{{commonStyles.cssVars}};{{uiCssVars}};{{topCssVars}};">
+    <image class="ui-page-bg" mode="aspectFill" src="{{useConfig.backgroundImage}}" wx:if="{{useConfig.backgroundImage}}"></image>
+    <ui-top bindtopcssvarsupdate="onTopCssVarsUpdate" bindtopheightupdate="onTopHeightUpdate" config="{{topConfig}}" id="ui-top" style="{{useConfig.hiddenTop?'display:none;':''}}{{useConfig.immersiveTop?'position: absolute;':''}}" wx:if="{{!useConfig.disableTop}}">
+        <slot name="top-bg" slot="top-bg"></slot>
+        <slot name="titlebar-append" slot="titlebar-append"></slot>
+        <slot name="top-append" slot="top-append"></slot>
+    </ui-top>
+    <slot name="top"></slot>
+    <view class="ui-page-content ui-page-nonscroll" wx:if="{{useConfig.disableScroll}}">
+        <slot></slot>
+    </view>
+    <scroll-view scrollY bindscroll="{{scrollListener?'onScroll':undefined}}" bindscrolltolower="{{scrollListener?'onScrollToLower':undefined}}" bindscrolltoupper="{{scrollListener?'onScrollToUpper':undefined}}" class="ui-page-content ui-page-scroll" scrollTop="{{scrollTop}}" scrollWithAnimation="{{scrollWithAnimation}}" wx:else>
+        <slot></slot>
+    </scroll-view>
+    <slot name="append"></slot>
+</view>
+<wxs module="utils">
+module.exports.getClassNameByMode = (function(modeStr) {
+    return (!modeStr ? '' : modeStr.split('+').map((function(mode) {
+        return ('__' + mode)
+    })).join())
+});
+</wxs>

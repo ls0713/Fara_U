@@ -1,0 +1,12 @@
+{
+    "name": "wxapp-gym",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+        "countdown": "^2.6.0",
+        "wx-mini-qrcode": "^1.0.3"
+    },
+    "devDependencies": {},
+    "author": "Maverick",
+    "license": "ISC"
+}

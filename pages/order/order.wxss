@@ -1,0 +1,48 @@
+@import "../../templates/buy-item.wxss";
+
+.order-status {
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20rpx;
+    font-size: 32rpx;
+}
+
+.order-status>i {
+    font-size: 36rpx;
+    margin-right: 10rpx;
+}
+
+.section-box {
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    margin-bottom: 10rpx;
+}
+
+.section-title {
+    padding: 20rpx 0 20rpx 20rpx;
+    font-weight: bold;
+    font-size: 34rpx;
+    color: var(--light-20);
+    display: flex;
+    align-items: center;
+}
+
+.buy-item-box {
+    margin-left: 20rpx;
+    border-bottom: 1rpx solid var(--line-d-004);
+    padding-left: 0;
+}
+
+.contact-line {
+    --ui-line-label-min-width: 3em;
+}
+
+.normal-price {
+    color: inherit;
+}
+
+.pay-price {
+    font-size: 40rpx;
+}

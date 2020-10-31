@@ -1,0 +1,29 @@
+<view bindtap="targetActionRun" class="_schedule-item" data-action=">schedule-detail?id={{item.id}}" style="background-image: url({{item.course.image}})">
+    <ui-img class="_schedule-item-avatar" mode="aspectFill" src="{{item.coach.avatar}}"></ui-img>
+    <view class="_schedule-item-flag {{flagDisabled?'_disabled':''}}">{{flagText}}</view>
+    <view class="_schedule-item-top">
+        <view class="_schedule-item-header">
+            <view class="_course-name">{{item.course.name}}</view>
+        </view>
+    </view>
+    <view class="_schedule-item-main">
+        <view class="_schedule-item-info">
+            <view class="_coach">教练: {{item.coach.name}}</view>
+            <view class="_time">{{utils.dateRangeFormat(item.start,item.end,'M.d hh:mm',' - ',true)}}</view>
+            <view class="_line" wx:if="{{wait}}">报名开始于 {{utils.dateFormat(item.orderStart,'M月d日 hh:mm')}}</view>
+            <view class="_line" wx:else>报名截止于 {{utils.dateFormat(item.orderEnd,'M月d日 hh:mm')}}</view>
+        </view>
+        <view class="_schedule-item-clear"></view>
+    </view>
+    <div catchtap="targetActionRun" class="_schedule-item-store" data-action=">store?id={{item.store.id}}" wx:if="{{!hiddenStore}}">
+        <i class="iconfont icon-ui-store"></i>
+        <view class="_name">{{item.store.name}}</view>
+        <block wx:if="{{item.store.stroke}}">
+            <view class="_split"></view>
+            <i class="iconfont icon-{{strokeIcons[ item.store.stroke[0] ]}}"></i>
+            <view class="_stroke">{{item.store.stroke[1]}}<block wx:if="{{item.store.stroke[2]}}"> · {{item.store.stroke[2]}}米</block>
+            </view>
+        </block>
+    </div>
+</view>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

@@ -1,0 +1,52 @@
+.ui-guide {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: calc(var(--ui-guide-row-gap) * -1);
+}
+
+.ui-guide-grid {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--ui-guide-row-gap);
+    box-sizing: border-box;
+}
+
+.ui-guide-item {
+    margin: 0 calc(var(--ui-guide-col-gap) / 2);
+    padding: var(--ui-guide-item-padding);
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ui-guide-item>._image {
+    width: 100%;
+    height: var(--ui-guide-icon-size);
+}
+
+.ui-guide-item>._image:only-child {
+    height: var(--ui-guide-alone-size);
+    min-height: 100%;
+}
+
+.ui-guide-item>._icon {
+    font-size: var(--ui-guide-icon-size);
+    color: var(--ui-guide-icon-color);
+    color: var(--icon-decolor, var(--icon-color, var(--ui-guide-icon-color)));
+}
+
+.ui-guide-item>._icon:only-child {
+    font-size: var(--ui-guide-alone-size);
+}
+
+.ui-guide-item>._label {
+    margin-top: var(--ui-guide-label-gap);
+    font-size: var(--ui-guide-label-size);
+    color: var(--ui-guide-label-color);
+    color: var(--text-decolor, var(--label-color, var(--ui-guide-label-color)));
+}
+
+.ui-guide-item>._label:only-child {
+    margin-top: 0;
+}

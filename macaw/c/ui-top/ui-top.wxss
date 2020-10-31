@@ -1,0 +1,109 @@
+.ui-top {
+    width: 100%;
+    color: var(--top-front);
+    --btn-background-color: rgba(255,255,255,.6);
+    --btn-front-color: #000;
+    --btn-border-color: rgba(0,0,0,.1);
+    --btn-hover-background-color: rgba(255,255,255,.8);
+    transition-property: color;
+    transition-duration: var(--top-transition-duration);
+    transition-timing-function: ease;
+}
+
+.ui-top-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition-property: background-color,backdrop-filter,-webkit-backdrop-filter;
+    transition-duration: var(--top-transition-duration);
+    transition-timing-function: ease;
+    transform: translateZ(0);
+}
+
+.ui-top-bg:empty {
+    background-color: var(--top-background-color);
+    backdrop-filter: var(--top-filter);
+}
+
+.ui-top._front-light {
+    --btn-background-color: rgba(0,0,0,.18);
+    --btn-front-color: #fff;
+    --btn-border-color: rgba(255,255,255,.26);
+    --btn-hover-background-color: rgba(0,0,0,.38);
+}
+
+.ui-top-statusbar {
+    height: var(--status-bar-height);
+}
+
+.ui-top-titlebar {
+    display: flex;
+    height: var(--title-bar-height);
+    padding-right: var(--title-bar-padding-right);
+}
+
+.ui-top-titlebar:last-child {
+    padding-bottom: 6rpx;
+}
+
+.ui-top-titlebar-text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 34rpx;
+    overflow: hidden;
+}
+
+.ui-top-titlebar-text>._text {
+    white-space: nowrap;
+    opacity: var(--top-title-alpha);
+    transition: opacity var(--top-transition-duration) ease;
+}
+
+.ui-top-titlebar-text._left>._text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ui-top-titlebar-text._center>._text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ui-top-titlebar-text:first-child {
+    padding-left: 20rpx;
+}
+
+.ui-top-titlebar-text:last-child {
+    padding-right: 20rpx;
+}
+
+.ui-top-titlebar-back {
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+    position: relative;
+}
+
+.ui-top-titlebar-back>.iconfont {
+    font-size: 40rpx;
+}
+
+.ui-top-titlebar-back+.ui-top-titlebar-back:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -15rpx;
+    height: 30rpx;
+    border-left: 1rpx solid var(--top-front);
+    opacity: .2;
+}

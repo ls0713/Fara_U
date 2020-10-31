@@ -1,0 +1,19 @@
+{
+    "component": true,
+    "usingComponents": {
+        "ui-guide": "/macaw/c/ui-guide/ui-guide",
+        "ui-swiper": "/macaw/c/ui-swiper/ui-swiper",
+        "courses-list": "/components/courses-list/courses-list",
+        "service-store": "/components/service-store/service-store",
+        "ui-nav-placeholder": "/macaw/c/ui-nav-placeholder/ui-nav-placeholder",
+        "ui-shortcut": "/macaw/c/ui-shortcut/ui-shortcut",
+        "ui-page": "/macaw/c/ui-page/ui-page",
+        "ui-ipx": "/macaw/c/ui-ipx/ui-ipx",
+        "ui-img": "/macaw/c/ui-img/ui-img",
+        "ui-copyright": "/macaw/c/ui-copyright/ui-copyright",
+        "ui-login": "/macaw/c/ui-login/ui-login",
+        "ui-price": "/macaw/c/ui-price/ui-price",
+        "ui-pager-status": "/macaw/c/ui-pager-status/ui-pager-status",
+        "ui-status": "/macaw/c/ui-status/ui-status"
+    }
+}

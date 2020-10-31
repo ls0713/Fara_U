@@ -1,0 +1,6 @@
+<home id="home" pageConfig="{{uiPage}}" pageType="{{pageType}}" style="{{page!=='home'?'display:none;':''}}" topConfig="{{uiTop}}" wx:if="{{pageAlive.home}}"></home>
+<vchome id="vchome" pageConfig="{{uiPage}}" pageType="{{pageType}}" style="{{page!=='vchome'?'display:none;':''}}" topConfig="{{uiTop}}" wx:if="{{pageAlive.vchome}}"></vchome>
+<stores id="stores" pageConfig="{{uiPage}}" pageType="{{pageType}}" style="{{page!=='stores'?'display:none;':''}}" topConfig="{{uiTop}}" wx:if="{{pageAlive.stores}}"></stores>
+<promotions id="promotions" pageConfig="{{uiPage}}" pageType="{{pageType}}" style="{{page!=='promotions'?'display:none;':''}}" topConfig="{{uiTop}}" wx:if="{{pageAlive.promotions}}"></promotions>
+<coaches id="coaches" pageConfig="{{uiPage}}" pageType="{{pageType}}" style="{{page!=='coaches'?'display:none;':''}}" topConfig="{{uiTop}}" wx:if="{{pageAlive.coaches}}"></coaches>
+<me id="me" pageConfig="{{uiPage}}" pageType="{{pageType}}" style="{{page!=='me'?'display:none;':''}}" topConfig="{{uiTop}}" wx:if="{{pageAlive.me}}"></me>

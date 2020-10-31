@@ -1,0 +1,14 @@
+<view bindtap="targetActionRun" class="_courses-item" data-action=">course?id={{item.id}}">
+    <view class="_cover">
+        <ui-img class="_image" mode="aspectFill" src="{{item.image}}"></ui-img>
+        <view catchtap="onVideoPlayTap" class="_video-play iconfont icon-ui-video-play" wx:if="{{item.videoSrc}}"></view>
+        <video autoplay bindended="stopVideo" binderror="onVideoError" catchtap="noopFunc" class="_video" poster="{{item.videoPoster}}" src="{{item.videoSrc}}" wx:if="{{playing}}"></video>
+    </view>
+    <view class="_info">
+        <view class="_title">{{item.name}}</view>
+        <view class="_intro">{{item.intro}}</view>
+        <view class="_bottom">
+            <course-sysclass class="_sys" sysclass="{{item.sysClass}}"></course-sysclass>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+<view class="ui-guide">
+    <view class="ui-guide-grid" style="width:{{100/useConfig.column}}%" wx:for="{{useConfig.items}}" wx:key="{{index}}">
+        <view bindtap="targetActionRun" class="ui-guide-item _hover-brightness-btn" data-action="{{item.action}}" hoverClass="_hover" style="{{utils.cssVar('icon-color',item.iconColor||useConfig.iconColor)}} {{utils.cssVar('label-color',item.labelColor||useConfig.labelColor)}}">
+            <image class="_image" mode="aspectFit" src="{{item.image}}" wx:if="{{item.image}}"></image>
+            <i class="_icon {{useConfig.iconCustom?'':'iconfont icon-'}}{{item.icon}}" wx:elif="{{item.icon}}"></i>
+            <text class="_label" wx:if="{{!(useConfig.hiddenLabel||item.hiddenLabel)}}">{{item.label}}</text>
+        </view>
+    </view>
+</view>
+<wxs module="utils" src="../../common/wxs-utils.wxs" />

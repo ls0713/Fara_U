@@ -1,0 +1,114 @@
+.main-view {
+    --header-margin-top: calc(var(--top-real-height) + 100rpx);
+}
+
+.coach-avatar {
+    position: relative;
+    z-index: 1;
+    margin: var(--header-margin-top) 10rpx 20rpx 30rpx;
+    float: left;
+    height: 269rpx;
+    width: 200rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 10rpx 20rpx rgba(0,0,0,.1);
+    background-color: var(--white-color);
+}
+
+.header-top {
+    position: relative;
+    padding: var(--header-margin-top) 20rpx 20rpx 20rpx;
+}
+
+.course-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.course-name {
+    display: inline-block;
+    margin: 20rpx 0 0 20rpx;
+    font-size: 46rpx;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    color: #fff;
+    text-shadow: 0 6rpx 10rpx rgba(0,0,0,.1);
+}
+
+.course-name>i {
+    margin-left: .4em;
+    font-size: .8em;
+    opacity: .6;
+    vertical-align: middle;
+}
+
+.sc-section {
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    margin-bottom: 10rpx;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.course-price {
+    font-size: 42rpx;
+}
+
+.course-time {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.countdown-view {
+    text-align: center;
+    white-space: nowrap;
+    padding: 40rpx 20rpx;
+}
+
+.countdown-view>._label {
+    font-size: 30rpx;
+    color: var(--light-60);
+    margin-bottom: 30rpx;
+    display: flex;
+    align-items: center;
+}
+
+.countdown-view>._label:before,.countdown-view>._label:after {
+    content: '';
+    flex: 1 1 0%;
+    border-bottom: 2rpx solid var(--line-d-010);
+    margin: 0 10rpx;
+}
+
+.countdown-view>._time {
+    font-size: 40rpx;
+    font-weight: bold;
+    color: var(--light-30);
+    font-family: Consolas,Arial;
+}
+
+.queue-view {
+    padding: 20rpx 30rpx;
+    font-size: 30rpx;
+    color: var(--light-40);
+    display: flex;
+    align-items: center;
+}
+
+.queue-view>i {
+    margin-right: 10rpx;
+    font-size: 1.4em;
+}
+
+.order-line {
+    font-size: 30rpx;
+    --ui-line-value-size: 1em;
+    --ui-line-label-color: var(--light-40);
+    --ui-line-value-color: var(--light-60);
+    --ui-line-value-size: 0.9em;
+}

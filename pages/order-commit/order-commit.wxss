@@ -1,0 +1,144 @@
+@import "../../templates/buy-item.wxss";
+
+.buy-item-box {
+    padding-top: 10rpx;
+    margin-left: 20rpx;
+    border-bottom: 1rpx solid var(--line-b-004);
+    backdrop-filter: var(--block-blur-8);
+}
+
+.top-countdown {
+    text-align: center;
+    font-size: 28rpx;
+    padding: 20rpx 0;
+}
+
+.top-countdown>text {
+    font-weight: bold;
+    font-family: Consolas,Arial;
+}
+
+.main-view {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-box {
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    margin-bottom: 10rpx;
+}
+
+.section-title {
+    padding: 20rpx 0 20rpx 20rpx;
+    font-weight: bold;
+    font-size: 34rpx;
+    color: var(--light-20);
+    display: flex;
+    align-items: center;
+}
+
+.section-title:after {
+    content: '';
+    margin-left: .4em;
+    flex: 1 1 0%;
+    border-bottom: 1rpx solid var(--line-d-006);
+}
+
+.info-input {
+    flex: 1 1 0%;
+    padding: 0;
+}
+
+.coupon-placeholder {
+    opacity: .5;
+}
+
+.normal-price {
+    color: inherit;
+}
+
+.pay-price {
+    font-size: 46rpx;
+}
+
+.payment-method-view {
+    margin-bottom: 20rpx;
+}
+
+.footer-box {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-option {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+}
+
+.card-option:not(:first-child) {
+    padding-top: 0;
+}
+
+.card-option:before {
+    flex-shrink: 0;
+    content: '';
+    display: block;
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    border: 3rpx solid var(--line-d-006);
+    transition: background-color .2s ease;
+    margin-right: 10rpx;
+}
+
+.card-option._active:before {
+    background-color: var(--active-color);
+}
+
+.card-item {
+    flex: 1 1 0%;
+}
+
+.terms-tip {
+    margin: 0 auto;
+    font-size: 26rpx;
+    padding: 0 20rpx;
+    line-height: 50rpx;
+    border-radius: 25rpx;
+    background-color: var(--block-d-004);
+    color: var(--light-60);
+    margin-bottom: 30rpx;
+}
+
+.terms-tip>text {
+    font-weight: bold;
+    color: var(--light-40);
+}
+
+.contact-line {
+    --ui-line-label-min-width: 3em;
+}
+
+.wx-pay-tip {
+    line-height: 1.4;
+    padding: 16rpx 30rpx 16rpx 20rpx;
+    color: var(--light-60);
+    font-size: 28rpx;
+    text-align: right;
+}
+
+.wx-pay-tip>i {
+    font-size: 1.4em;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+.wx-pay-tip>ui-price {
+    color: var(--light-40);
+    margin: 0 6rpx;
+    font-size: 1.2em;
+}

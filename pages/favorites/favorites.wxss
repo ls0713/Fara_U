@@ -1,0 +1,117 @@
+.main-view {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sub-view {
+    height: 100%;
+    overflow: hidden;
+}
+
+.result-view {
+    height: 100%;
+    overflow: hidden;
+}
+
+.favorite-item-wrap {
+    border-bottom: 1rpx solid var(--line-d-004);
+    background-color: var(--section-bg);
+    transition: background-color .2s ease;
+}
+
+.favorite-item-content {
+    width: 100%;
+}
+
+.favorite-item-expand {
+    width: 140rpx;
+    display: flex;
+}
+
+.favorite-item-expand>view {
+    flex: 1 1 0%;
+    background-color: var(--block-d-006);
+    color: var(--light-10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50rpx;
+    white-space: nowrap;
+}
+
+.favorite-item-expand>._remove {
+    background-color: #e94545;
+    color: #fff;
+}
+
+.vc-overview {
+    display: flex;
+    padding: 20rpx;
+}
+
+.vc-overview>._cover {
+    width: 240rpx;
+    height: 190rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+}
+
+.vc-overview ._info {
+    flex: 1 1 0%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 10rpx 0;
+}
+
+.vc-overview ._title {
+    font-weight: bold;
+    font-size: 34rpx;
+    letter-spacing: .06em;
+    line-height: 1.4;
+    max-height: 2.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: var(--light-20);
+    margin-bottom: 10rpx;
+}
+
+.vc-overview ._intro {
+    font-size: 28rpx;
+    line-height: 1.4;
+    max-height: 2.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: var(--light-40);
+    margin-bottom: 10rpx;
+}
+
+.vc-overview ._bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vc-overview ._price {
+    font-size: 36rpx;
+}
+
+.vc-overview ._ios {
+    font-size: 28rpx;
+    color: var(--light-60);
+}
+
+.vc-overview ._own {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: var(--light-50);
+}

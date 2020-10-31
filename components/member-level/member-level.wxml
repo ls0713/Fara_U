@@ -1,0 +1,4 @@
+<view class="_member-level" style="color:{{frontColor}}; background-color:{{level.bgColor}}" wx:if="{{enabledMemberLevel}}">
+    <view class="_icon" style="background-image:url({{level.iconImg}})" wx:if="{{level.iconImg}}"></view>
+    <view class="_name">{{level.name}}</view>
+</view>

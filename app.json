@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/demo/demo",
+    "pages/article/article",
+    "pages/distributor/distributor",
+    "pages/brokerage/brokerage",
+    "pages/withdraw/withdraw",
+    "pages/brokerage-list/brokerage-list",
+    "pages/withdraw-list/withdraw-list",
+    "pages/subordinate-list/subordinate-list",
+    "pages/vc/vc",
+    "pages/about/about",
+    "pages/course-schedule/course-schedule",
+    "pages/check-in/check-in",
+    "pages/orders/orders",
+    "pages/order/order",
+    "pages/write-off/write-off",
+    "pages/personal/personal",
+    "pages/member/member",
+    "pages/recharge/recharge",
+    "pages/schedule/schedule",
+    "pages/schedule-detail/schedule-detail",
+    "pages/order-commit/order-commit",
+    "pages/coupons/coupons",
+    "pages/coupons-supply/coupons-supply",
+    "pages/coach/coach",
+    "pages/course/course",
+    "pages/promotion/promotion",
+    "pages/store/store",
+    "custom-pages/main/main",
+    "custom-pages/sub/sub"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#000000"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "custom-pages/main/main"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 15000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxf3027314776b5138",
+    "wxf3027314776b5138",
+    "wxf3027314776b5138"
+  ],
+  "sitemapLocation": "sitemap80.json"
+}

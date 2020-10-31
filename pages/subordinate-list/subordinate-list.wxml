@@ -1,0 +1,30 @@
+<ui-page scrollListener bindscrolltolower="nextPage" id="ui-page">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{distributor}}">
+            <view class="summary-view" slot="top-append">
+                <view class="_label	">下线总数：</view>
+                <view class="_value">{{distributor.subordinateCount}} 人</view>
+            </view>
+            <ui-status binderrorbtntap="pageReLoad" status="{{_status.list}}">
+                <view class="subordinate-list">
+                    <view class="subordinate-item" wx:for="{{list}}" wx:key="{{index}}">
+                        <image class="_avatar" src="{{item.avatar}}"></image>
+                        <view class="_info">
+                            <view class="_name">{{item.realName}}</view>
+                            <view class="_nick-name">昵称：{{item.nickName}}</view>
+                            <view class="_phone">手机号：{{item.phone}}</view>
+                        </view>
+                        <view bindtap="targetActionRun" class="_call _hover-brightness-btn" data-action=":callPhone" data-action-value="{{item.phone}}" hoverClass="_hover">
+                            <i class="iconfont icon-info-phone"></i>
+                        </view>
+                    </view>
+                </view>
+                <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.list}}"></ui-pager-status>
+                <ui-ipx></ui-ipx>
+            </ui-status>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

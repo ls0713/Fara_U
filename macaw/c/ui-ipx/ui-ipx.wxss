@@ -1,0 +1,4 @@
+.ui-ipx {
+    height: 34px;
+    flex-shrink: 0;
+}

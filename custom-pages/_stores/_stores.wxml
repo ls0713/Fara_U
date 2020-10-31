@@ -1,0 +1,17 @@
+<ui-page scrollListener bindscrolltolower="nextPage" config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+        <view class="common-immersive-list">
+            <view bindtap="targetActionRun" class="common-immersive-item" data-action=">store?id={{item.id}}" hoverClass="_hover" wx:for="{{list}}" wx:key="{{index}}">
+                <view class="_service-flag" wx:if="{{serviceStoreID==item.id}}">当前服务门店</view>
+                <ui-img class="_image" mode="aspectFill" src="{{item.image}}"></ui-img>
+                <view class="_info">
+                    <view class="_title">{{item.name}}</view>
+                    <view class="_description iconfont icon-ui-address">{{item.address}}</view>
+                </view>
+            </view>
+        </view>
+        <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.main}}"></ui-pager-status>
+        <ui-ipx></ui-ipx>
+    </ui-status>
+    <ui-nav-placeholder slot="append" wx:if="{{pageType==='main'}}"></ui-nav-placeholder>
+</ui-page>

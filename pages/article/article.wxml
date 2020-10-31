@@ -1,0 +1,23 @@
+<ui-page id="ui-page">
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+        <view class="article-view">
+            <view class="article-header">
+                <ui-img class="article-image" mode="aspectFill" src="{{article.image}}"></ui-img>
+                <view class="article-mask">
+                    <view class="_top-holder"></view>
+                    <view class="article-info">
+                        <view class="article-title">{{article.title}}</view>
+                        <view class="article-time iconfont icon-ui-date">{{utils.dateFormat(article.time,'yyyy-MM-dd')}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="article-content">
+                <ui-html nodes="{{article.content}}"></ui-html>
+            </view>
+            <image bindtap="targetActionRun" class="article-action" data-action="{{article.action}}" mode="widthFix" src="{{article.actionImage}}" wx:if="{{article.actionImage}}"></image>
+            <ui-ipx></ui-ipx>
+        </view>
+    </ui-status>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

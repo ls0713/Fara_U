@@ -1,0 +1,54 @@
+@import "../../wuBaseWxss/2.wxss";
+
+.subordinate-list {
+    overflow: hidden;
+}
+
+.subordinate-item {
+    margin: 20rpx;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    box-shadow: 0 10rpx 20rpx rgba(0,0,0,.04);
+    border: 1rpx solid var(--line-d-006);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.subordinate-item>._avatar {
+    flex-shrink: 0;
+    height: 120rpx;
+    width: 120rpx;
+    border-radius: 50%;
+    background-color: var(--block-d-004);
+}
+
+.subordinate-item>._info {
+    flex: 1 1 0%;
+    margin: 0 20rpx;
+    font-size: 28rpx;
+    color: var(--light-40);
+    line-height: 1.4;
+}
+
+.subordinate-item ._name {
+    font-size: 34rpx;
+    font-weight: bold;
+    color: var(--light-30);
+}
+
+.subordinate-item>._call {
+    flex-shrink: 0;
+    width: 60rpx;
+    height: 60rpx;
+    font-size: 32rpx;
+    border-radius: 50%;
+    color: var(--theme-color-front);
+    background-color: var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10rpx 4rpx rgba(0,0,0,.1);
+}

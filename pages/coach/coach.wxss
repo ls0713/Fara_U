@@ -1,0 +1,162 @@
+.coach-avatar {
+    position: relative;
+    z-index: 1;
+    margin: 0 30rpx 20rpx 30rpx;
+    float: left;
+    height: 403rpx;
+    width: 300rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 10rpx 20rpx rgba(0,0,0,.1);
+    background-color: var(--white-color);
+}
+
+.coach-info {
+    padding: 20rpx 30rpx 0 0;
+}
+
+.coach-info-line {
+    margin-bottom: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.coach-private-flag {
+    padding: 0 10rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    border-radius: 10rpx;
+    background-color: var(--theme-color);
+    color: var(--theme-color-front);
+    margin-left: 20rpx;
+}
+
+.coach-name {
+    font-weight: bold;
+    font-size: 46rpx;
+    letter-spacing: 0.04em;
+    color: var(--light-20);
+}
+
+.coach-intro {
+    font-size: 30rpx;
+    color: var(--light-40);
+    line-height: 1.4;
+    margin-bottom: 20rpx;
+}
+
+.coach-float-content {
+    display: block;
+    padding: 20rpx 30rpx 10rpx 30rpx;
+    box-shadow: 0 -10rpx 10rpx rgba(0,0,0,.04);
+}
+
+.coach-say {
+    font-size: 30rpx;
+    line-height: 1.6;
+    color: var(--light-20);
+    letter-spacing: .04em;
+}
+
+.coach-say>i {
+    font-size: 1.2em;
+    color: var(--light-80);
+}
+
+.coach-float-clear {
+    clear: both;
+}
+
+.coach-section {
+    background-color: var(--section-bg);
+    margin-bottom: 10rpx;
+    backdrop-filter: var(--block-blur-4);
+}
+
+.coach-section-content {
+    padding: 20rpx 40rpx;
+    font-size: 28rpx;
+    color: var(--light-30);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    white-space: pre-wrap;
+}
+
+.coach-skillful {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -20rpx;
+}
+
+.coach-skillful>._item {
+    padding: 0 20rpx;
+    line-height: 46rpx;
+    font-size: 28rpx;
+    margin: 0 20rpx 20rpx 0;
+    background-color: var(--block-d-006);
+    border-radius: 10rpx;
+}
+
+.coach-private-price {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 20rpx;
+}
+
+.coach-private-price ._min-order {
+    font-size: 28rpx;
+    color: var(--light-40);
+    margin-top: 10rpx;
+}
+
+.coach-private-price ._unit-price {
+    margin-right: 30rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: var(--light-30);
+}
+
+.coach-private-price ._price {
+    font-size: 46rpx;
+}
+
+.coach-private-info {
+    font-size: 30rpx;
+    white-space: nowrap;
+    padding: 20rpx 30rpx;
+    display: flex;
+}
+
+.coach-private-info-item {
+    flex: 1 1 0%;
+    color: var(--light-30);
+    line-height: 66rpx;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+    background-color: var(--block-d-002);
+    border: 1rpx solid var(--line-d-004);
+    display: flex;
+    align-items: center;
+    transition: background-color .2s ease;
+}
+
+.coach-private-info-item:not(:last-child) {
+    margin-right: 20rpx;
+}
+
+.coach-private-info-item._hover {
+    background-color: var(--block-d-004);
+}
+
+.coach-private-info-item i {
+    margin-right: 10rpx;
+    font-size: 1.4em;
+}
+
+.coach-private-info-item .icon-info-wechat {
+    color: var(--icon-decolor,#09bb07);
+}
+
+.coach-private-info-item .icon-info-phone {
+    color: var(--icon-decolor,#243657);
+}

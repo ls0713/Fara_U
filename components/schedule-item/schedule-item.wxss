@@ -1,0 +1,138 @@
+._schedule-item {
+    position: relative;
+    border-radius: 20rpx;
+    background-color: #999;
+    box-shadow: 0 6rpx 16rpx rgba(0,0,0,.04);
+    overflow: hidden;
+    transform: translateZ(0);
+    background-size: cover;
+    background-position: center;
+}
+
+._schedule-item-main {
+}
+
+._schedule-item-top {
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+._schedule-item-header {
+    position: relative;
+    z-index: 1;
+    height: 100rpx;
+    display: flex;
+    align-items: flex-end;
+    padding: 20rpx;
+    padding-left: 0;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 2rpx 4rpx rgba(0,0,0,.1);
+}
+
+._schedule-item-header>._course-name {
+    font-size: 40rpx;
+    font-weight: bold;
+    letter-spacing: .06em;
+}
+
+._schedule-item-header>._coach {
+    margin-left: auto;
+    font-size: 28rpx;
+}
+
+._schedule-item-avatar {
+    float: left;
+    margin: 20rpx;
+    height: 220rpx;
+    width: 164rpx;
+    border-radius: 10rpx;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 6rpx 10rpx rgba(0,0,0,.1);
+}
+
+._schedule-item-main {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 -10rpx 10rpx rgba(0,0,0,.1);
+    color: #fff;
+}
+
+._schedule-item-info {
+    padding: 14rpx 20rpx;
+    font-size: 26rpx;
+    line-height: 1.6;
+}
+
+._schedule-item-info>._coach {
+    margin-bottom: 6rpx;
+}
+
+._schedule-item-info>._time {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+    line-height: 1;
+}
+
+._schedule-item-info>._line:not(:last-child) {
+    margin-bottom: 10rpx;
+}
+
+._schedule-item-flag {
+    position: absolute;
+    top: 0;
+    right: 20rpx;
+    align-self: center;
+    background-color: var(--theme-color);
+    color: var(--theme-color-front);
+    line-height: 60rpx;
+    font-size: 28rpx;
+    padding: 0 10rpx;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+._schedule-item-flag._disabled {
+    background-color: rgba(0,0,0,.2);
+    color: rgba(255,255,255,.5);
+}
+
+._schedule-item-date {
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    height: 60rpx;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+._schedule-item-store {
+    color: #fff;
+    border-top: 1rpx solid rgba(255,255,255,.2);
+    background-color: rgba(0,0,0,.6);
+    padding: 0 20rpx;
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+._schedule-item-store>.iconfont {
+    font-size: 1.2em;
+    margin-right: 10rpx;
+}
+
+._schedule-item-store>._split {
+    height: 1.2em;
+    border-right: 1rpx solid rgba(255,255,255,.5);
+    margin: 0 20rpx;
+}
+
+._schedule-item-clear {
+    clear: both;
+}

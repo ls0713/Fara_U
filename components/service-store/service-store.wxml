@@ -1,0 +1,9 @@
+<view class="_service-store">
+    <view bindtap="targetActionRun" class="_header" data-action="@stores" hoverClass="_hover">
+        <view class="_label">当前服务门店</view>
+        <view class="_toggle iconfont icon-ui-toggle">切换门店</view>
+    </view>
+    <view class="_content">
+        <store-box bindtap="targetActionRun" class="_service-store-info" data-action=">store?id={{store.id}}" store="{{store}}" wx:if="{{store}}"></store-box>
+    </view>
+</view>

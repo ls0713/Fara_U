@@ -1,0 +1,3 @@
+<include src="../pageGroup.wxml"></include>
+<ui-nav binddoubletaptab="onDoubleTapTab" update="{{page}}"></ui-nav>
+<ui-shortcut></ui-shortcut>

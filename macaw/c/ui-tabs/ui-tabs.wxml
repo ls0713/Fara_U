@@ -1,0 +1,16 @@
+<view class="ui-tabs-wrap {{vertical?'ui-tabs-vertical':'ui-tabs-horizontal'}}">
+    <scroll-view class="_scroll ui-tabs" scrollIntoView="ui-tabs-item_{{current}}" scrollX="{{!vertical}}" scrollY="{{vertical}}" wx:if="{{scroll}}">
+        <view class="ui-tabs-items-box">
+            <view bindtap="onItemTap" class="ui-tabs-item {{current==item[idKey]?'_active':''}}" data-item="{{item}}" id="ui-tabs-item_{{item[idKey]}}" wx:for="{{items}}" wx:key="{{index}}">{{item[labelKey]}}</view>
+            <view class="ui-tabs-indicator" style="{{indicatorGroup[current]}}">
+                <slot></slot>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="_nonscroll ui-tabs ui-tabs-items-box" wx:else>
+        <view bindtap="onItemTap" class="ui-tabs-item {{current==item[idKey]?'_active':''}}" data-item="{{item}}" id="ui-tabs-item_{{item[idKey]}}" wx:for="{{items}}" wx:key="{{index}}">{{item[labelKey]}}</view>
+        <view class="ui-tabs-indicator" style="{{indicatorGroup[current]||'opacity:0'}}">
+            <slot></slot>
+        </view>
+    </view>
+</view>

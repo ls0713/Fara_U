@@ -1,0 +1,20 @@
+<ui-page id="ui-page">
+    <block wx:if="{{typesList}}">
+        <ui-tabs scroll binditemtap="tabTap" current="{{type}}" items="{{typesList}}" labelKey="name" slot="top-append"></ui-tabs>
+        <view class="main-view">
+            <swiper bindchange="onResultSwiperChange" class="result-swiper" currentItemId="{{type}}" duration="300">
+                <swiper-item itemId="{{group.id}}" wx:for="{{typesList}}" wx:for-item="group" wx:key="{{group.id}}">
+                    <ui-status binderrorbtntap="onPageErrorTap" data-type="{{group.id}}" status="{{_status[group.id]}}">
+                        <scroll-view scrollY bindscrolltolower="onNextPage" class="result-view" data-type="{{group.id}}">
+                            <vc-list items="{{listSet[group.id]}}"></vc-list>
+                            <ui-pager-status binderrorbtntap="onNextPage" data-type="{{group.id}}" status="{{_pager[group.id]}}"></ui-pager-status>
+                            <ui-ipx></ui-ipx>
+                        </scroll-view>
+                    </ui-status>
+                </swiper-item>
+            </swiper>
+        </view>
+    </block>
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+</ui-page>
+<ui-shortcut></ui-shortcut>

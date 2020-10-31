@@ -1,0 +1,124 @@
+@import "../../wuBaseWxss/2.wxss";
+
+@import "../../templates/buy-item.wxss";
+
+.main-tabs {
+    display: block;
+    border-top: 1rpx solid var(--btn-border-color);
+}
+
+.main-view {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.result-swiper {
+    flex: 1 1 0%;
+    overflow: hidden;
+}
+
+.result-view {
+    height: 100%;
+    overflow: hidden;
+}
+
+.brokerage-item {
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    margin: 20rpx;
+    border-top: 1rpx solid var(--line-d-006);
+    border-bottom: 1rpx solid var(--line-d-006);
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 16rpx 4rpx rgba(0,0,0,.04);
+    transition: box-shadow .2s ease;
+    color: var(--light-40);
+}
+
+.brokerage-item._hover {
+    box-shadow: 0 6rpx 20rpx 4rpx rgba(0,0,0,.06);
+}
+
+.brokerage-item>._top,.brokerage-item>._bottom {
+    display: flex;
+    align-items: center;
+}
+
+.brokerage-item>._top {
+    height: 70rpx;
+    padding: 0 20rpx;
+}
+
+.brokerage-item>._bottom {
+    min-height: 50rpx;
+}
+
+.brokerage-item>._bottom {
+    padding: 14rpx 20rpx;
+}
+
+.brokerage-item ._mid {
+    background-color: var(--block-b-002);
+    border-top: 1rpx solid var(--line-d-004);
+    border-bottom: 1rpx solid var(--line-d-004);
+}
+
+.brokerage-item ._left {
+    margin-right: auto;
+}
+
+.brokerage-item ._right {
+    margin-left: auto;
+}
+
+.brokerage-item ._sn {
+    font-size: 26rpx;
+    color: var(--light-60);
+}
+
+.brokerage-item ._status {
+    font-size: 28rpx;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.brokerage-item ._status>i {
+    margin-right: 6rpx;
+}
+
+.brokerage-item ._tip {
+    color: var(--light-50);
+    line-height: 60rpx;
+    text-align: center;
+    background-color: rgba(0,0,0,.005);
+}
+
+.brokerage-item ._brokerage {
+    font-weight: bold;
+    color: var(--light-40);
+}
+
+.consumer-box {
+    display: flex;
+    align-items: center;
+}
+
+.consumer-box>._avatar {
+    height: 50rpx;
+    width: 50rpx;
+    border-radius: 50%;
+    background-color: var(--block-d-004);
+}
+
+.consumer-box>._name {
+    margin: 0 6rpx;
+    font-weight: bold;
+}
+
+.consumer-box>ui-price {
+    margin-left: 6rpx;
+}

@@ -1,0 +1,35 @@
+<template name="store-stroke">
+    <ui-section class="store-stroke" icon="{{method.icon}}" iconColor="{{method.iconColor}}">
+        <view class="_prefer" slot="bar-before" wx:if="{{prefer}}">推荐</view>
+        <view class="_site" slot="bar-label">{{method.siteBefore}}<text>{{stroke[0]}}</text>
+        </view>
+        <view class="_walk" slot="bar-description" wx:if="{{stroke[1]}}">步行<text>{{stroke[1]}}米</text>
+        </view>
+        <view class="_tip" wx:if="{{stroke[2]}}">
+			{{stroke[2]}}
+		</view>
+    </ui-section>
+</template>
+<ui-page id="ui-page">
+    <block wx:if="{{_status.main.ready}}">
+        <view class="store-box-fixed" hidden="{{!boxFixed}}" slot="top-append">
+            <store-box store="{{store}}"></store-box>
+        </view>
+        <ui-img class="store-image" mode="aspectFill" src="{{store.image}}"></ui-img>
+        <view class="store-section store-box-static">
+            <store-box store="{{store}}"></store-box>
+        </view>
+        <view class="store-section store-stroke-section">
+            <view class="store-section-title">到达方式：</view>
+            <template is="store-stroke" data="{{stroke:store[item.key],method:item,prefer:store.prefer===item.key}}" wx:if="{{store[item.key]}}" wx:for="{{strokeMethods}}" wx:key="{{index}}"></template>
+        </view>
+        <view class="common-bottom-btn-holder"></view>
+        <view class="common-bottom-btn-wrap" slot="append" wx:if="{{!isService}}">
+            <view bindtap="toggle" class="common-bottom-btn _hover-brightness-btn" hoverClass="_hover">切换到此门店</view>
+            <ui-ipx></ui-ipx>
+        </view>
+        <ui-ipx></ui-ipx>
+    </block>
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+</ui-page>
+<ui-shortcut></ui-shortcut>

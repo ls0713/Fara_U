@@ -1,0 +1,16 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <ui-status binderrorbtntap="reLoad" status="{{_status.home}}">
+        <view class="_top-holder"></view>
+        <ui-swiper autoplay circular class="home-banner" items="{{banner.items}}" style="height: {{banner.height}}rpx" wx:if="{{banner.enabled&&banner.items.length}}"></ui-swiper>
+        <service-store></service-store>
+        <ui-guide class="home-guide" config="{{guide}}" wx:if="{{guide.enabled&&guide.items.length}}"></ui-guide>
+        <view class="home-section home-section-courses">
+            <view class="home-section-title">
+                <text class="_text">推荐课程</text>
+            </view>
+            <courses-list items="{{starCourses.items}}"></courses-list>
+        </view>
+        <ui-copyright></ui-copyright>
+    </ui-status>
+    <ui-nav-placeholder slot="append" wx:if="{{pageType==='main'}}"></ui-nav-placeholder>
+</ui-page>

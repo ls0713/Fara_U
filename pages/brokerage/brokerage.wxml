@@ -1,0 +1,51 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{_status.main.ready}}">
+            <view class="summary-view" slot="top-append">
+                <view class="_label	">累计佣金：</view>
+                <ui-price value="{{brokerageCumulative}}"></ui-price>
+                <view bindtap="targetActionRun" class="_detail" data-action=">brokerage-list" hoverClass="_hover">佣金明细</view>
+            </view>
+            <view class="main-view">
+                <view class="brokerage-section">
+                    <ui-line class="brokerage-info" icon="withdraw-balance" label="可提现佣金">
+                        <ui-price value="{{brokerage}}"></ui-price>
+                    </ui-line>
+                </view>
+                <view class="brokerage-section">
+                    <ui-line class="brokerage-info" icon="withdraw-review" label="已申请佣金">
+                        <ui-price class="normal-price" value="{{brokerageReview}}"></ui-price>
+                    </ui-line>
+                    <ui-line class="brokerage-info" icon="withdraw-wait" label="待打款佣金">
+                        <ui-price class="normal-price" value="{{brokerageWaiting}}"></ui-price>
+                    </ui-line>
+                    <ui-line class="brokerage-info" icon="withdraw-dismissed" label="无效佣金">
+                        <ui-price class="normal-price" value="0"></ui-price>
+                    </ui-line>
+                    <ui-line class="brokerage-info" icon="withdraw-approved" label="成功提现佣金">
+                        <ui-price class="normal-price" value="{{brokerageConsumed}}"></ui-price>
+                    </ui-line>
+                    <ui-line class="brokerage-info" icon="brokerage-pending" label="未结算佣金">
+                        <ui-price class="normal-price" value="{{brokerageSuspend}}"></ui-price>
+                    </ui-line>
+                </view>
+                <view class="brokerage-tip">
+                    <view>买家订单完成后，立即获得分销佣金</view>
+                    <view wx:if="{{withdrawMinLimit}}">注意：每笔提现不得低于 <ui-price class="normal-price" value="{{withdrawMinLimit}}"></ui-price>
+                    </view>
+                </view>
+            </view>
+            <ui-ipx></ui-ipx>
+            <block wx:if="{{brokerage}}">
+                <view class="common-bottom-btn-holder"></view>
+                <view class="common-bottom-btn-wrap" slot="append">
+                    <view bindtap="targetActionRun" class="common-bottom-btn _hover-brightness-btn" data-action=">withdraw?successback=true" hoverClass="_hover">我要提现</view>
+                    <ui-ipx></ui-ipx>
+                </view>
+            </block>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

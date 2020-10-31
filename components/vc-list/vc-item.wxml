@@ -1,0 +1,14 @@
+<view bindtap="targetActionRun" class="_vc-item" data-action=">vc?id={{item.id}}" wx:for="{{items}}" wx:key="{{item.id}}">
+    <ui-img lazyLoad class="_cover" mode="aspectFill" src="{{item.cover}}"></ui-img>
+    <view class="_info">
+        <text class="_title">{{item.title}}</text>
+        <text class="_intro">{{item.intro}}</text>
+        <view class="_extra">
+            <view class="_sold" wx:if="{{item.sold}}">{{item.sold}}人参与</view>
+            <view class="_own" wx:if="{{item.purchased}}">已拥有</view>
+            <view class="_ios" wx:elif="{{iosDisabled}}">无法为iOS端提供服务</view>
+            <ui-price class="_price" value="{{item.price}}" wx:elif="{{item.price>0}}"></ui-price>
+            <view class="_own" wx:else>免费</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,2 @@
+<image src="{{image}}" style="width:{{width}}px; height:{{height}}px" wx:if="{{image}}"></image>
+<canvas disableScroll bindlongtap="press" bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="{{canvasId}}" class="f2-canvas" wx:else></canvas>

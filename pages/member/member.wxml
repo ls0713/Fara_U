@@ -1,0 +1,41 @@
+<ui-page id="ui-page">
+    <ui-login>
+        <view class="member-header">
+            <view bindtap="{{enabledMemberLevel?'targetActionRun':''}}" class="level-box" data-action=">recharge?type=level">
+                <view class="user-box">
+                    <image class="user-avatar" mode="aspectFit" src="{{userData.avatar}}"></image>
+                    <view class="user-info">
+                        <view class="user-name">{{userData.nickName}}</view>
+                        <member-level class="user-level" levelId="{{userData.level}}"></member-level>
+                    </view>
+                </view>
+                <view class="level-upgrade" wx:if="{{enabledMemberLevel}}">
+                    <text>会员升级</text>
+                    <i class="iconfont icon-ui-next"></i>
+                </view>
+            </view>
+        </view>
+        <view class="member-section">
+            <ui-line action=">recharge?type=balance" class="ui-info" icon="ui-balance" label="余额">
+                <ui-price class="course-price" value="{{userData.balance}}"></ui-price>
+            </ui-line>
+            <ui-line action=">recharge?type=unlimited" class="ui-info" icon="pay-unlimited" label="无限次约课权">
+                <view class="_value">{{!userData.unlimitedEnd?'未购买':userData.unlimitedExpired?'已过期':'有效期至 '+utils.dateFormat(userData.unlimitedEnd,'yyyy-MM-dd')}}</view>
+            </ui-line>
+            <ui-line action=">recharge?type=count" class="ui-info" icon="pay-count" label="剩余约课次数" value="{{userData.countLeft}} 次"></ui-line>
+        </view>
+        <view class="member-section">
+            <ui-line action="" class="ui-title" icon="pay-card" label="可用计次卡" value=""></ui-line>
+            <view class="card-view">
+                <view class="card-list" wx:if="{{userData.cards.length}}">
+                    <card-item class="card-item" item="{{item}}" wx:for="{{userData.cards}}" wx:key="{{item.id}}"></card-item>
+                </view>
+                <view class="card-list-empty" wx:else>你还没有可用的记次卡</view>
+                <view bindtap="targetActionRun" class="card-buy common-btn _hover-brightness-btn" data-action=">recharge?type=card" hoverClass="_hover">{{userData.cards.length?'购买更多':'去购买'}}</view>
+            </view>
+        </view>
+        <ui-ipx></ui-ipx>
+    </ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

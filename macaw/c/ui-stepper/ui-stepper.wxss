@@ -1,0 +1,47 @@
+.ui-stepper {
+    display: flex;
+    text-align: center;
+}
+
+.ui-stepper>._btn,.ui-stepper>._input {
+    display: block;
+    border: 2rpx solid var(--line-d-020);
+    line-height: var(--ui-stepper-size);
+    color: var(--light-30);
+    transition-property: color,border-color,background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease;
+}
+
+.ui-stepper>._input {
+    min-height: 0;
+    height: auto;
+    font-size: calc(var(--ui-stepper-size) * 0.56);
+    width: 3em;
+}
+
+.ui-stepper>._btn {
+    flex: 1 1 0%;
+    font-size: calc(var(--ui-stepper-size) * 0.8);
+    color: var(--light-80);
+    width: calc(var(--ui-stepper-size) * 1.2);
+}
+
+.ui-stepper>._btn._hover {
+    background-color: var(--block-d-004);
+}
+
+.ui-stepper>._minus {
+    border-right: none;
+    border-radius: 10rpx 0 0 10rpx;
+}
+
+.ui-stepper>._plus {
+    border-left: none;
+    border-radius: 0 10rpx 10rpx 0;
+}
+
+.ui-stepper>._disable {
+    pointer-events: none;
+    opacity: .5;
+}

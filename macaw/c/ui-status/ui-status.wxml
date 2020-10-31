@@ -1,0 +1,12 @@
+<view class="ui-status" wx:if="{{useStatus}}">
+    <ui-loading class="_loading" wx:if="{{mode==='loading'}}"></ui-loading>
+    <block wx:else>
+        <slot name="emptyBefore" wx:if="{{mode==='empty'}}"></slot>
+        <slot name="errorBefore" wx:elif="{{mode==='error'}}"></slot>
+        <i class="_icon iconfont icon-{{useStatus.icon}}" wx:if="{{useStatus.icon}}"></i>
+        <text bindlongpress="{{mode==='error'?'targetActionRun':''}}" class="_text" data-action=":copyText" data-action-value="{{useStatus.text}}">{{useStatus.text}}</text>
+        <view bindtap="btnTap" class="_btn _hover-brightness-btn" data-action="{{useStatus.action}}" data-mode="{{mode}}" hoverClass="_hover" wx:if="{{useStatus.btn}}">{{useStatus.btn}}</view>
+        <view class="ui-status-version" wx:if="{{useStatus.showAppVersion}}">ver {{version}}</view>
+    </block>
+</view>
+<slot wx:else></slot>

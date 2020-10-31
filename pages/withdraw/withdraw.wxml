@@ -1,0 +1,40 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <form reportSubmit bindsubmit="commit" wx:if="{{_status.main.ready}}">
+            <view class="main-view">
+                <view class="section-box withdraw-box">
+                    <view class="withdraw-label">提现金额</view>
+                    <view class="withdraw-money">
+                        <text class="money-symbol">¥</text>
+                        <input bindinput="inputChange" class="money-input" name="money" type="digit" value="{{money}}"></input>
+                    </view>
+                    <view class="withdraw-tip">
+                        <text>当前可提现佣金：{{brokerage}}</text>
+                        <view bindtap="onAllTap" class="withdraw-all">全部提现</view>
+                    </view>
+                    <view class="withdraw-tip" wx:if="{{withdrawMinLimit}}">每笔提现不得低于 <ui-price class="normal-price" value="{{withdrawMinLimit}}"></ui-price>
+                    </view>
+                </view>
+                <view class="section-box">
+                    <view class="multiple-method-view">
+                        <view class="multiple-method-item {{methodSelected===item.id?'_active':''}} {{item.disabled?'_disabled':''}}" wx:for="{{withdrawMethodsGroup}}" wx:key="{{item.id}}">
+                            <view bindtap="{{item.disabled?'':'targetDataSet'}}" class="_bar" data-pm-selected="{{item.id}}">
+                                <i class="iconfont icon-{{item.icon}}"></i>
+                                <view class="_name">{{item.name}}</view>
+                                <view class="_description">
+                                    <block wx:if="{{item.id==='bank'}}">两小时内到账</block>
+                                </view>
+                            </view>
+                            <view class="_content"></view>
+                        </view>
+                    </view>
+                </view>
+                <button class="_clear-button-style common-bottom-btn _hover-brightness-btn" formType="submit" hoverClass="_hover">申请提现</button>
+            </view>
+            <ui-ipx></ui-ipx>
+        </form>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

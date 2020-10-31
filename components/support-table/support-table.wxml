@@ -1,0 +1,11 @@
+<view class="_support-table">
+    <view class="_support-list" wx:for="{{groups}}" wx:for-item="list" wx:key="{{list.id}}">
+        <view class="_label">{{list.label}}</view>
+        <view class="_list">
+            <view class="_item {{item.isCurrent?'_current':''}}" wx:for="{{list.items}}" wx:key="{{item.id}}">
+                <i class="iconfont icon-{{item.isAllowed?'ui-allowed':'ui-refused'}}"></i>
+                <view class="_value">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>

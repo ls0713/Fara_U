@@ -1,0 +1,16 @@
+<view bindtap="{{!disableTap?'targetActionRun':''}}" class="ui-line" data-action="{{action}}" data-action-value="{{actionValue}}" hoverClass="{{!disableTap&&(hover||next||action||openType||needReport)?'_hover':''}}">
+    <slot name="before"></slot>
+    <i class="_icon iconfont icon-{{icon}}" style="{{utils.cssVar('icon-color',iconColor)}}" wx:if="{{icon}}"></i>
+    <view class="_left">
+        <view class="_label" wx:if="{{label}}">{{label}}</view>
+        <slot name="label"></slot>
+    </view>
+    <view class="_right _align-{{valueAlign}}">
+        <text class="_value" wx:if="{{value}}">{{value}}</text>
+        <slot></slot>
+    </view>
+    <i class="_next iconfont icon-{{nextIcon}}" wx:if="{{(next||action)&&nextIcon}}"></i>
+    <slot name="after"></slot>
+    <wxbutton appParameter="{{appParameter}}" bindwxbuttonevent="onWxButtonEvent" lang="{{lang}}" needReport="{{needReport}}" openType="{{openType}}" sendMessageImg="{{sendMessageImg}}" sendMessagePath="{{sendMessagePath}}" sendMessageTitle="{{sendMessageTitle}}" sessionFrom="{{sessionFrom}}" showMessageCard="{{showMessageCard}}" wx:if="{{!disableTap&&(openType||needReport)}}"></wxbutton>
+</view>
+<wxs module="utils" src="../../common/wxs-utils.wxs" />

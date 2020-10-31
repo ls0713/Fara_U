@@ -1,0 +1,28 @@
+<view class="_coaches-list">
+    <view bindtap="targetActionRun" class="_coaches-item" data-action=">coach?id={{item.id}}" wx:if="{{type!=='private'||item.isPrivate}}" wx:for="{{items}}" wx:key="{{item.id}}">
+        <view class="_private-flag" wx:if="{{type!=='private'&&item.isPrivate}}">私教</view>
+        <ui-img class="_avatar" mode="aspectFill" src="{{item.avatar}}"></ui-img>
+        <view class="_info">
+            <block wx:if="{{type==='private'}}">
+                <view class="_line">
+                    <view class="_name">{{item.name}}</view>
+                    <view class="_intro">{{item.intro}}</view>
+                </view>
+                <view class="_skillful">
+                    <view class="_skillful-item" wx:for="{{item.skillful}}" wx:key="$this">{{item}}</view>
+                </view>
+                <view class="_line _bottom">
+                    <view class="_min-order">起售节数:{{item.minOrder}}</view>
+                    <view class="_unit-price">
+                        <ui-price class="_price" value="{{item.price}}"></ui-price>/节
+					</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="_name">{{item.name}}</view>
+                <view class="_intro">{{item.intro}}</view>
+                <view class="_professional">{{item.professional}}</view>
+            </block>
+        </view>
+    </view>
+</view>

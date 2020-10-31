@@ -1,0 +1,21 @@
+<view class="ui-top {{useConfig.frontColorIsLight?'_front-light':'_front-dark'}}" style="{{uiCssVars}}">
+    <view class="ui-top-bg">
+        <slot name="top-bg"></slot>
+    </view>
+    <view class="ui-top-statusbar"></view>
+    <view class="ui-top-titlebar">
+        <block wx:if="{{!useConfig.hiddenBackBtn}}">
+            <view bindtap="navigateBack" class="ui-top-titlebar-back" wx:if="{{backPrev}}">
+                <i class="iconfont icon-back-prev"></i>
+            </view>
+            <view bindtap="homeBack" class="ui-top-titlebar-back" wx:if="{{!backPrev||useConfig.showBackHome}}">
+                <i class="iconfont icon-back-home"></i>
+            </view>
+        </block>
+        <view class="ui-top-titlebar-text _{{useConfig.titleStyle}}" wx:if="{{titleText}}">
+            <text class="_text">{{titleText}}</text>
+        </view>
+        <slot name="titlebar-append"></slot>
+    </view>
+    <slot name="top-append"></slot>
+</view>

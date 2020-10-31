@@ -1,0 +1,41 @@
+._card-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10rpx;
+    border: 2rpx solid var(--line-d-006);
+    box-sizing: border-box;
+}
+
+._card-item>._top,._card-item>._bottom {
+    display: flex;
+    padding: 0 20rpx;
+}
+
+._card-item>._bottom {
+    font-size: 28rpx;
+    color: var(--light-40);
+    padding: 20rpx;
+}
+
+._card-item ._name {
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-top: 20rpx;
+    color: var(--light-30);
+}
+
+._card-item ._course {
+    align-self: flex-start;
+    margin-left: auto;
+    background-color: var(--theme-color);
+    color: var(--theme-color-front);
+    font-size: 28rpx;
+    border-radius: 0 0 10rpx 10rpx;
+    line-height: 50rpx;
+    padding: 0 20rpx;
+}
+
+._card-item ._time {
+    margin-left: auto;
+}

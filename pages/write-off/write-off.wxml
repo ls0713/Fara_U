@@ -1,0 +1,62 @@
+<ui-page id="ui-page">
+    <view class="scan-view" wx:if="{{userData}}">
+        <view class="scan-box">
+            <view class="scan-error" wx:if="{{error}}">
+                <view>无法使用你的摄像头,你可以</view>
+                <button class="_clear-button-style common-btn _hover-brightness-btn" hoverClass="_hover" openType="openSetting">去开启权限</button>
+                <view>或</view>
+                <view bindtap="wxScan" class="common-btn _hover-brightness-btn" hoverClass="_hover">调用微信扫一扫</view>
+            </view>
+            <camera binderror="onError" bindscancode="onScanCode" class="scan-camera" mode="scanCode" wx:else></camera>
+        </view>
+        <view class="scan-output">
+            <text class="scan-output-text {{output.flicker?'_flicker':''}}">{{output.text}}</text>
+        </view>
+        <scroll-view scrollY class="scan-scroll" scrollTop="{{scrollTop}}">
+            <view class="tasks-list">
+                <view class="tasks-item" wx:for="{{tasksList}}" wx:key="{{item.raw}}">
+                    <block wx:if="{{item.success}}">
+                        <view class="_line">
+                            <view class="_type">
+								{{item.typeStr}}:
+								<block wx:if="{{item.type==='sc'}}">{{item.info.sc.name}}</block>
+                                <block wx:else>{{item.info.coach.name}}</block>
+                            </view>
+                            <block wx:if="{{item.type==='sc'}}">
+                                <view class="task-time">{{utils.dateRangeFormat(item.info.sc.start,item.info.sc.end,'M月d日 hh:mm','-')}}</view>
+                                <view class="task-coach">教练: {{item.info.coach.name}}</view>
+                            </block>
+                        </view>
+                        <view class="_line _bottom">
+                            <view class="task-user">
+                                <view class="_label">签到人:</view>
+                                <image class="_avatar" mode="aspectFit" src="{{item.info.user.avatar}}"></image>
+                                <view class="_name">{{item.info.user.nickName}}</view>
+                            </view>
+                            <view class="_status">
+                                <i class="iconfont icon-ui-allowed"></i>已处理</view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="_line">
+                            <view class="_type">{{item.typeStr}}</view>
+                            <view class="_raw">{{item.raw}}</view>
+                        </view>
+                        <view class="_line _bottom">
+                            <block wx:if="{{item.fail}}">
+                                <view class="_error">
+                                    <i class="iconfont icon-ui-refused"></i>[处理失败] {{item.error}}</view>
+                                <view bindtap="onTaskRetryTap" class="_btn common-btn _hover-brightness-btn" data-index="{{index}}" hoverClass="_hover">重试</view>
+                            </block>
+                            <view class="_status" wx:else>
+                                <ui-loading></ui-loading>处理中…</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

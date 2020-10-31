@@ -1,0 +1,179 @@
+.user-simple {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    opacity: var(--top-title-alpha);
+    transition: opacity .2s ease;
+}
+
+.user-simple:first-child {
+    margin-left: 20rpx;
+}
+
+.user-simple>._avatar {
+    flex-shrink: 0;
+    width: var(--top-btn-top);
+    height: var(--top-btn-top);
+    border-radius: 50%;
+    background-color: var(--btn-background-color);
+    border: 1rpx solid var(--btn-border-color);
+    margin-right: 8rpx;
+}
+
+.user-simple>._name {
+    font-size: 32rpx;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-view {
+    padding: 0 20rpx 20rpx 20rpx;
+    display: flex;
+    align-items: center;
+    color: var(--light-20);
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.user-avatar {
+    flex-shrink: 0;
+    border-radius: 50%;
+    height: 140rpx;
+    width: 140rpx;
+    border: 4rpx solid var(--line-d-002);
+}
+
+.user-info {
+    padding: 0 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 36rpx;
+    margin: 10rpx 0;
+}
+
+.user-level {
+    margin-top: 4rpx;
+    font-size: 24rpx;
+}
+
+.balance-box {
+    flex-shrink: 0;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rpx 40rpx;
+    border-left: 2rpx solid var(--line-d-006);
+}
+
+.balance-label {
+    margin-bottom: 10rpx;
+    font-weight: bold;
+    font-size: 30rpx;
+}
+
+.balance-value {
+    color: inherit;
+    font-size: 34rpx;
+}
+
+.user-checkin {
+    padding: 0 20rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+}
+
+.user-checkin-item {
+    height: 120rpx;
+    flex: 1 1 0%;
+    border-radius: 20rpx;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--section-bg);
+    border: 1rpx solid var(--line-d-006);
+    box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon-decolor,var(--light-80));
+    backdrop-filter: var(--block-blur-2);
+}
+
+.user-checkin-item>._icon {
+    font-size: 60rpx;
+    margin-right: 20rpx;
+}
+
+.user-checkin-item>._label {
+    font-size: 36rpx;
+    text-indent: -.06em;
+    letter-spacing: .06em;
+    font-weight: bold;
+}
+
+.user-checkin._color .user-checkin-item {
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 10rpx 10rpx rgba(0,0,0,0.04);
+    color: #fff;
+}
+
+.user-checkin._color .user-checkin-item:nth-child(1) {
+    background-image: linear-gradient(to right,#53def7,#2c6ecc);
+}
+
+.user-checkin._color .user-checkin-item:nth-child(2) {
+    background-image: linear-gradient(to right,#eeeb43,#ce900b);
+}
+
+.user-checkin._color .user-checkin-item>._icon {
+    position: absolute;
+    left: -20rpx;
+    bottom: -30rpx;
+    font-size: 140rpx;
+    opacity: .4;
+}
+
+.user-checkin._color .user-checkin-item>._label {
+    position: absolute;
+    left: 160rpx;
+    top: 48rpx;
+    line-height: 1;
+    font-size: 36rpx;
+}
+
+.user-checkin-item:not(:last-child) {
+    margin-right: 20rpx;
+}
+
+.cardtype-section {
+    margin: 0 20rpx 20rpx 20rpx;
+    border: 1rpx solid var(--line-d-006);
+    box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.04);
+    border-radius: 20rpx;
+    overflow: hidden;
+    backdrop-filter: var(--block-blur-2);
+}
+
+.cardtype-section>.ui-entrance {
+    height: 90rpx;
+    font-size: 28rpx;
+    --ui-line-dividing-left: 20rpx;
+    --ui-line-padding: 0 20rpx 0 30rpx;
+}
+
+.bonus-price {
+    color: var(--light-60);
+}

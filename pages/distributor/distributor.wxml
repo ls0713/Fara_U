@@ -1,0 +1,72 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{distributor}}">
+            <view class="user-view" slot="top-append">
+                <image class="user-avatar" mode="aspectFit" src="{{userData.avatar}}"></image>
+                <view class="user-text">
+                    <view class="user-name">{{userData.nickName}}</view>
+                    <view class="user-referrer" wx:if="{{distributor.referrer}}">
+                        <text class="_label">推荐人：</text>
+                        <image class="_avatar" mode="aspectFit" src="{{distributor.referrer.avatar}}"></image>
+                        <text class="_name">{{distributor.referrer.name}}</text>
+                    </view>
+                    <view wx:else>您已成为分销商</view>
+                </view>
+            </view>
+            <view class="main-view">
+                <view class="brokerage-view">
+                    <view class="brokerage-section">
+                        <view class="brokerage-item">
+                            <ui-price class="normal-price" value="{{distributor.brokerageConsumed}}"></ui-price>
+                            <view class="_label">成功提现佣金</view>
+                        </view>
+                    </view>
+                    <view class="brokerage-section">
+                        <view class="brokerage-item">
+                            <ui-price value="{{distributor.brokerage}}"></ui-price>
+                            <view class="_label">可提现佣金</view>
+                        </view>
+                        <view bindtap="targetActionRun" class="brokerage-btn common-btn _hover-brightness-btn" data-action=">withdraw" hoverClass="_hover" wx:if="{{distributor.brokerage}}">佣金提现</view>
+                    </view>
+                </view>
+                <view class="menus-section">
+                    <view bindtap="targetActionRun" class="menus-item" data-action=">brokerage" hoverClass="_hover">
+                        <i class="iconfont icon-ui-brokerage"></i>
+                        <view class="_text">
+                            <view class="_title">分销佣金</view>
+                            <view class="_description">
+                                <ui-price value="{{distributor.brokerageCumulative}}"></ui-price>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="targetActionRun" class="menus-item" data-action=">brokerage-list" hoverClass="_hover">
+                        <i class="iconfont icon-ui-detail-table"></i>
+                        <view class="_text">
+                            <view class="_title">佣金明细</view>
+                            <view class="_description">{{distributor.brokerageCount}} 笔</view>
+                        </view>
+                    </view>
+                    <view bindtap="targetActionRun" class="menus-item" data-action=">withdraw-list" hoverClass="_hover">
+                        <i class="iconfont icon-ui-withdraw"></i>
+                        <view class="_text">
+                            <view class="_title">提现明细</view>
+                            <view class="_description">{{distributor.withdrawCount}} 笔</view>
+                        </view>
+                    </view>
+                    <view bindtap="targetActionRun" class="menus-item" data-action=">subordinate-list" hoverClass="_hover">
+                        <i class="iconfont icon-ui-subordinate"></i>
+                        <view class="_text">
+                            <view class="_title">我的下线</view>
+                            <view class="_description">{{distributor.subordinateCount}} 人</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <ui-copyright></ui-copyright>
+            <ui-ipx></ui-ipx>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

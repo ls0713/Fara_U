@@ -1,0 +1,18 @@
+<ui-page id="ui-page">
+    <block wx:if="{{userData}}">
+        <view class="main-view" wx:if="{{_status.main.ready}}">
+            <view class="group-box" wx:for="{{group}}" wx:for-item="day" wx:key="{{day.time}}">
+                <view class="group-title">
+                    <view class="_date">{{utils.dateFormat(day.time,'yyyy-MM-dd')}}</view>
+                    <view class="_day">周{{day.dayWord}}</view>
+                </view>
+                <schedule-item hiddenStore item="{{item}}" wx:for="{{day.items}}" wx:key="{{item.id}}"></schedule-item>
+            </view>
+            <ui-ipx></ui-ipx>
+        </view>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

@@ -1,0 +1,17 @@
+<ui-page scrollListener bindscrolltolower="nextPage" config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+        <view class="common-immersive-list">
+            <view bindtap="targetActionRun" class="common-immersive-item" data-action=">promotion?id={{item.id}}" hoverClass="_hover" wx:for="{{list}}" wx:key="{{index}}">
+                <ui-img class="_image" mode="aspectFill" src="{{item.image}}"></ui-img>
+                <view class="_info">
+                    <view class="_title">{{item.title}}</view>
+                    <view class="_description _right iconfont icon-ui-date">{{utils.dateFormat(item.time,'yyyy-MM-dd')}}</view>
+                </view>
+            </view>
+        </view>
+        <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.main}}"></ui-pager-status>
+        <ui-ipx></ui-ipx>
+    </ui-status>
+    <ui-nav-placeholder slot="append" wx:if="{{pageType==='main'}}"></ui-nav-placeholder>
+</ui-page>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

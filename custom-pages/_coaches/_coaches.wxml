@@ -1,0 +1,22 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <view class="common-top-tabs-wrap" slot="titlebar-append">
+        <view class="common-top-tabs">
+            <ui-tabs binditemtap="tabTap" current="{{filterClass}}" items="{{filterClassGroup}}">
+                <view class="common-top-tabs-indicator"></view>
+            </ui-tabs>
+        </view>
+    </view>
+    <view class="main-view">
+        <view class="_top-holder"></view>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+            <swiper bindchange="onResultSwiperChange" class="result-swiper" currentItemId="{{filterClass}}" duration="300">
+                <swiper-item itemId="{{item.id}}" wx:for="{{filterClassGroup}}" wx:key="{{item.id}}">
+                    <scroll-view scrollY class="result-view">
+                        <coaches-list items="{{list}}" type="{{item.id}}"></coaches-list>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </ui-status>
+    </view>
+    <ui-nav-placeholder slot="append" wx:if="{{pageType==='main'}}"></ui-nav-placeholder>
+</ui-page>

@@ -1,0 +1,40 @@
+._trems-popup-view {
+    background-color: var(--white-color);
+    box-shadow: 0 -10rpx 10rpx rgba(0,0,0,calc(var(--ui-fade-status) * 0.04));
+    transition: box-shadow .2s ease;
+    color: var(--light-30);
+    max-height: 70vh;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 20rpx;
+}
+
+._trems-popup-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 90rpx;
+    border-bottom: 1rpx solid var(--line-b-006);
+    padding: 0 20rpx;
+}
+
+._trems-popup-title {
+    color: var(--light-20);
+    font-weight: bold;
+    font-size: 34rpx;
+}
+
+._trems-popup-scroll {
+    flex: 1 1 0%;
+}
+
+._trems-popup-content {
+    color: var(--light-30);
+    padding: 20rpx;
+    font-size: 30rpx;
+    line-height: 1.6;
+    letter-spacing: .02em;
+}

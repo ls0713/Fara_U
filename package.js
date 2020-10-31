@@ -1,0 +1,2 @@
+// package.js
+Page({data: {}})

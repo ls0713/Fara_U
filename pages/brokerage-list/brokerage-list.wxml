@@ -1,0 +1,58 @@
+<import src="../../templates/buy-item.wxml"></import>
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{distributor}}">
+            <view class="summary-view" slot="top-append">
+                <view class="_label	">佣金记录：</view>
+                <view class="_value	">{{distributor.brokerageCount}} 笔</view>
+            </view>
+            <ui-tabs binditemtap="tabTap" class="main-tabs" current="{{type}}" items="{{typesList}}" slot="top-append"></ui-tabs>
+            <view class="main-view">
+                <swiper bindchange="onResultSwiperChange" class="result-swiper" currentItemId="{{type}}" duration="300">
+                    <swiper-item itemId="{{group.id}}" wx:for="{{typesList}}" wx:for-item="group" wx:key="{{group.id}}">
+                        <ui-status binderrorbtntap="onPageErrorTap" data-type="{{group.id}}" status="{{_status[group.id]}}">
+                            <scroll-view scrollY bindscrolltolower="onNextPage" class="result-view" data-type="{{group.id}}">
+                                <view class="brokerage-list">
+                                    <view class="brokerage-item" hoverClass="_hover" wx:for="{{listSet[group.id]}}" wx:key="{{index}}">
+                                        <view class="_top">
+                                            <text class="_sn">订单号：{{item.orderSN}}</text>
+                                            <view class="_status" style="--status-color:{{statusMap[item.orderStatus].color}}">
+                                                <i class="iconfont icon-{{statusMap[item.orderStatus].icon}}"></i>
+                                                <text>{{statusMap[item.orderStatus].name}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="_mid">
+                                            <template is="buy-item-sc" data="{{...item.sc}}" wx:if="{{item.type==='sc'}}"></template>
+                                            <template is="buy-item-coach" data="{{...item.coach}}" wx:elif="{{item.type==='coach'}}"></template>
+                                            <template is="buy-item-vc" data="{{...item.vc}}" wx:elif="{{item.type==='vc'}}"></template>
+                                        </view>
+                                        <view class="_bottom">
+                                            <view class="_left">
+                                                <view class="consumer-box">
+                                                    <image class="_avatar" src="{{item.consumer.avatar}}"></image>
+                                                    <view class="_name">{{item.consumer.realName}}</view>
+                                                    <view>消费</view>
+                                                    <ui-price value="{{item.totalPrice}}"></ui-price>
+                                                </view>
+                                            </view>
+                                            <view class="_right">
+                                                <view class="_brokerage" wx:if="{{item.orderStatus==2}}">佣金+ <ui-price value="{{item.brokerageIncr}}"></ui-price>
+                                                </view>
+                                                <view class="_tip" wx:else>佣金待结算</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                                <ui-pager-status binderrorbtntap="onNextPage" data-type="{{group.id}}" status="{{_pager[group.id]}}"></ui-pager-status>
+                                <ui-ipx></ui-ipx>
+                            </scroll-view>
+                        </ui-status>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

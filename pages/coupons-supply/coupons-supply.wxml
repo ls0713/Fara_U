@@ -1,0 +1,10 @@
+<ui-page id="ui-page">
+    <ui-status binderrorbtntap="reLoad" data-type="{{item.id}}" status="{{_status.main}}" wx:if="{{userData}}">
+        <view class="coupon-list">
+            <coupon-item binditembtntap="itemTap" btnText="{{item.received?'已领取':item.over>0?'领取':'已领完'}}" class="coupon-item" data="{{item}}" data-index="{{index}}" wx:for="{{list}}" wx:key="{{index}}"></coupon-item>
+        </view>
+        <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.mian}}"></ui-pager-status>
+    </ui-status>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

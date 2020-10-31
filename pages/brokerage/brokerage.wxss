@@ -1,0 +1,44 @@
+@import "../../wuBaseWxss/2.wxss";
+
+.main-view {
+    overflow: hidden;
+}
+
+.brokerage-section {
+    background-color: var(--section-bg);
+    margin: 20rpx 0;
+}
+
+.brokerage-info {
+    height: 90rpx;
+    --ui-line-padding: 20rpx;
+    --ui-line-label-color: var(--light-40);
+    --ui-line-value-color: var(--light-30);
+    --ui-line-dividing-border: 1rpx solid var(--line-d-008);
+}
+
+.brokerage-info:not(:last-child) {
+    --ui-line-dividing: var(--ui-line-dividing-border);
+}
+
+.brokerage-line>._value {
+    margin-left: auto;
+    color: #333;
+}
+
+.brokerage-line ui-price {
+    color: inherit;
+    font-weight: normal;
+}
+
+.brokerage-tip {
+    color: var(--light-60);
+    font-size: 28rpx;
+    padding: 20rpx;
+    line-height: 1.4;
+}
+
+.normal-price {
+    color: var(--light-30);
+    font-weight: normal;
+}

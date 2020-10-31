@@ -1,0 +1,10 @@
+<view class="_store-box">
+    <view class="_store-info">
+        <view class="_store-name">{{store.name}}</view>
+        <view class="_store-address iconfont icon-ui-address">{{store.address}}</view>
+    </view>
+    <view catchtap="openLocation" class="_sotre-navigation" hoverClass="_hover" wx:if="{{store.location}}">
+        <i class="iconfont icon-ui-navigation"></i>
+        <text class="_label">地图导航</text>
+    </view>
+</view>

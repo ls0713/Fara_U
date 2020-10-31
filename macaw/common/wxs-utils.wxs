@@ -1,0 +1,56 @@
+function cssVar(key, val) {
+    return (val || val === 0 ? ('--' + key + ':' + val + ';') : '')
+};
+
+function includes(arr, val) {
+    return (arr.indexOf(val) !== -1)
+};
+var regYear = getRegExp('(y+)', 'i');
+
+function dateFormat(date, format) {
+    if (typeof date !== 'object') date = getDate(parseInt(date));;
+    if (!format) format = 'yyyy-MM-dd hh:mm:ss';;
+    var dateMap = [
+        ['M+', date.getMonth() + 1],
+        ['d+', date.getDate()],
+        ['h+', date.getHours()],
+        ['m+', date.getMinutes()],
+        ['s+', date.getSeconds()],
+        ['S+', date.getMilliseconds()]
+    ];
+    var reg1 = regYear.exec(format);
+    if (reg1) format = format.replace(reg1[(1)], (date.getFullYear() + '').substring(4 - reg1[(1)].length));;
+    for (var i = 0; i < dateMap.length; i++) {
+        var k = dateMap[((nt_2 = (i), null == nt_2 ? undefined : 'number' === typeof nt_2 ? nt_2 : "" + nt_2))][(0)];
+        var v = dateMap[((nt_3 = (i), null == nt_3 ? undefined : 'number' === typeof nt_3 ? nt_3 : "" + nt_3))][(1)];
+        var reg2 = getRegExp('(' + k + ')').exec(format);
+        if (reg2) {
+            format = format.replace(reg2[(1)], reg2[(1)].length == 1 ? v : ('00' + v).substring(('' + v).length))
+        }
+    };
+    return (format)
+};
+
+function dateRangeFormat(dateStart, dateEnd, format, splitter, absoluteDay) {
+    if (typeof dateStart !== 'object') dateStart = getDate(parseInt(dateStart));;
+    if (typeof dateEnd !== 'object') dateEnd = getDate(parseInt(dateEnd));;
+    if (!format) format = 'yyyy.MM.dd hh:mm:ss';;
+    if (!splitter) splitter = ' - ';;
+    var endFormat = format;
+    var sameDay = false;
+    if (dateStart.getFullYear() === dateEnd.getFullYear()) {
+        endFormat = endFormat.replace(getRegExp('(y|Y)+[^yYMdhmsS]*'), '');
+        if (dateStart.getMonth() === dateEnd.getMonth() && dateStart.getDate() === dateEnd.getDate()) {
+            endFormat = endFormat.replace(getRegExp('M+[^yYMdhmsS]*'), '');
+            endFormat = endFormat.replace(getRegExp('d+[^yYMdhmsS]*'), '');
+            sameDay = true
+        }
+    };
+    return (dateFormat(dateStart, (sameDay && absoluteDay) ? endFormat : format) + splitter + dateFormat(dateEnd, endFormat))
+};
+module.exports = ({
+    cssVar: cssVar,
+    includes: includes,
+    dateFormat: dateFormat,
+    dateRangeFormat: dateRangeFormat,
+});

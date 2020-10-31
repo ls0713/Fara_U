@@ -1,0 +1,7 @@
+<view bindtap="tapMask" catchtouchmove="noopFunc" class="ui-fade-wrap {{show?'_show':''}}" hidden="{{!isReady}}">
+    <view class="ui-fade-content-wrap" style="{{contentWrapStyle}}">
+        <view catchtap="noopFunc" class="ui-fade-content" style="{{contentStyle}}">
+            <slot></slot>
+        </view>
+    </view>
+</view>

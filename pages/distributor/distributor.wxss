@@ -1,0 +1,151 @@
+.user-view {
+    display: flex;
+    padding: 10rpx 20rpx 20rpx 20rpx;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    height: 100rpx;
+    width: 100rpx;
+    background-color: var(--btn-background-color);
+    margin-right: 20rpx;
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 28rpx;
+    justify-content: space-between;
+    padding: 10rpx 0;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-referrer {
+    display: flex;
+    align-items: center;
+}
+
+.user-referrer>._avatar {
+    border-radius: 50%;
+    height: 42rpx;
+    width: 42rpx;
+    background-color: var(--btn-background-color);
+    margin-right: 6rpx;
+}
+
+.main-view {
+    overflow: hidden;
+}
+
+.brokerage-view {
+    margin: 20rpx 0;
+    background-color: var(--section-bg);
+}
+
+.brokerage-section {
+    padding: 20rpx 20rpx 20rpx 30rpx;
+    display: flex;
+    position: relative;
+}
+
+.brokerage-section:not(:last-child):before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20rpx;
+    right: 0;
+    border-bottom: 1rpx solid var(--line-d-006);
+}
+
+.brokerage-item {
+}
+
+.brokerage-item ui-price {
+    font-size: 36rpx;
+    margin-bottom: 10rpx;
+}
+
+.brokerage-item>._label {
+    margin-top: 8rpx;
+    color: var(--light-60);
+    font-size: 24rpx;
+}
+
+.brokerage-btn {
+    margin-left: auto;
+    flex-shrink: 0;
+    align-self: center;
+    font-size: 28rpx;
+}
+
+.menus-section {
+    margin: 20rpx 0;
+    background-color: var(--section-bg);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menus-item {
+    line-height: 1.3;
+    width: 50%;
+    padding: 20rpx;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    border-bottom: 1rpx solid var(--line-d-006);
+    transition: background-color .2s ease-out;
+}
+
+.menus-item._hover {
+    background-color: var(--block-d-004);
+}
+
+.menus-item:nth-child(odd) {
+    border-right: 1rpx solid var(--line-d-006);
+}
+
+.menus-item:nth-last-child(2):nth-child(odd),.menus-item:nth-last-child(2):nth-child(odd)+.menus-item,.menus-item:nth-last-child(1):nth-child(odd) {
+    border-bottom: none;
+}
+
+.menus-item>i {
+    font-size: 64rpx;
+    margin-right: 20rpx;
+}
+
+.menus-item>i.icon-ui-brokerage {
+    color: var(--icon-decolor, #f2c700);
+}
+
+.menus-item>i.icon-ui-detail-table {
+    color: var(--icon-decolor, #7d7d7d);
+}
+
+.menus-item>i.icon-ui-withdraw {
+    color: var(--icon-decolor, #725734);
+}
+
+.menus-item>i.icon-ui-subordinate {
+    color: var(--icon-decolor, #2a90d0);
+}
+
+.menus-item ._title {
+    font-size: 30rpx;
+}
+
+.menus-item ._description {
+    font-size: 26rpx;
+    color: var(--light-60);
+}
+
+.menus-item ._description ui-price {
+    color: inherit;
+    font-weight: normal;
+}
+
+.normal-price {
+    color: var(--light-30);
+}

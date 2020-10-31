@@ -1,0 +1,1 @@
+<view class="ui-ipx" wx:if="{{show}}"></view>

@@ -1,0 +1,78 @@
+@import "../../templates/buy-item.wxss";
+
+.orders-item {
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    margin: 20rpx;
+    border-top: 1rpx solid var(--line-d-006);
+    border-bottom: 1rpx solid var(--line-d-006);
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 4rpx 16rpx 4rpx rgba(0,0,0,.04);
+    transition: box-shadow .2s ease;
+    color: var(--light-40);
+}
+
+.orders-item._hover {
+    box-shadow: 0 6rpx 20rpx 4rpx rgba(0,0,0,.06);
+}
+
+.orders-item>._top,.orders-item>._bottom {
+    display: flex;
+    align-items: center;
+}
+
+.orders-item>._top {
+    height: 70rpx;
+    padding: 0 20rpx;
+}
+
+.orders-item>._bottom {
+    min-height: 50rpx;
+}
+
+.orders-item>._bottom {
+    padding: 14rpx 20rpx;
+}
+
+.orders-item ._mid {
+    background-color: var(--block-b-002);
+    border-top: 1rpx solid var(--line-d-004);
+    border-bottom: 1rpx solid var(--line-d-004);
+}
+
+.orders-item ._left {
+    margin-right: auto;
+}
+
+.orders-item ._right {
+    margin-left: auto;
+}
+
+.orders-item ._sn {
+    font-size: 26rpx;
+    color: var(--light-60);
+}
+
+.orders-item ._status {
+    font-size: 28rpx;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.orders-item ._status>i {
+    margin-right: 6rpx;
+}
+
+.orders-item ._tip {
+    color: var(--light-50);
+    padding: 0 20rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background-color: rgba(0,0,0,.005);
+}
+
+.orders-item .pay-price {
+    font-size: 36rpx;
+}

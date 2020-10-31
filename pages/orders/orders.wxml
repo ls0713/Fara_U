@@ -1,0 +1,34 @@
+<import src="../../templates/buy-item.wxml"></import>
+<ui-page scrollListener bindscrolltolower="nextPage" id="ui-page">
+    <ui-login>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+            <view class="orders-list">
+                <view bindtap="targetActionRun" class="orders-item" data-action=">order?id={{item.id}}" hoverClass="_hover" wx:for="{{list}}" wx:key="{{index}}">
+                    <view class="_top">
+                        <text class="_sn">订单号：{{item.orderSN}}</text>
+                        <view class="_status" style="--status-color:{{statusMap[item.status].color}}">
+                            <i class="iconfont icon-{{statusMap[item.status].icon}}"></i>
+                            <text>{{statusMap[item.status].name}}</text>
+                        </view>
+                    </view>
+                    <view class="_mid">
+                        <template is="buy-item-sc" data="{{...item.sc}}" wx:if="{{item.type==='sc'}}"></template>
+                        <template is="buy-item-coach" data="{{...item.coach}}" wx:elif="{{item.type==='coach'}}"></template>
+                        <template is="buy-item-vc" data="{{...item.vc}}" wx:elif="{{item.type==='vc'}}"></template>
+                    </view>
+                    <view class="_bottom">
+                        <view class="_left">
+							支付方式: {{item.payMethod}}
+						</view>
+                        <view class="_right">
+                            <view catchtap="targetActionRun" class="common-btn _hover-brightness-btn" data-action=">order?id={{item.id}}&refund=true" hoverClass="_hover" wx:if="{{item.status==1}}">取消订单</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.main}}"></ui-pager-status>
+            <ui-ipx></ui-ipx>
+        </ui-status>
+    </ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

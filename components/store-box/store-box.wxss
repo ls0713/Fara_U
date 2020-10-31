@@ -1,0 +1,50 @@
+._store-box {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+._store-info {
+    flex: 1 1 0%;
+    padding-right: 20rpx;
+}
+
+._store-name {
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: .04em;
+    color: var(--light-20);
+    margin-bottom: 0.5em;
+}
+
+._store-address {
+    color: var(--light-40);
+}
+
+._store-address:before {
+    margin-right: 0.2em;
+}
+
+._sotre-navigation {
+    flex-shrink: 0;
+    margin-left: auto;
+    color: var(--light-40);
+    border-left: 2rpx solid var(--line-d-006);
+    padding: 10rpx 20rpx 10rpx 30rpx;
+    transition: background-color .2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+._sotre-navigation._hover {
+    color: var(--clight-40);
+}
+
+._sotre-navigation>.iconfont {
+    font-size: 1.6em;
+    display: block;
+    margin-bottom: 0.2em;
+}

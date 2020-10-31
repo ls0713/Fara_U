@@ -1,0 +1,128 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <view class="common-top-tabs-wrap" slot="titlebar-append">
+            <view class="common-top-tabs">
+                <ui-tabs binditemtap="tabTap" current="{{filterClass}}" items="{{filterClassGroup}}">
+                    <view class="common-top-tabs-indicator"></view>
+                </ui-tabs>
+            </view>
+        </view>
+        <view class="main-view">
+            <view class="_top-holder"></view>
+            <swiper bindchange="onResultSwiperChange" class="result-swiper" currentItemId="{{filterClass}}" duration="300">
+                <swiper-item itemId="{{group.id}}" wx:for="{{filterClassGroup}}" wx:for-item="group" wx:key="{{group.id}}">
+                    <ui-status binderrorbtntap="onPageErrorTap" data-type="{{group.id}}" status="{{_status[group.id]}}">
+                        <scroll-view scrollY class="result-view">
+                            <view class="check-in-list">
+                                <block wx:if="{{group.id==='sc'}}">
+                                    <view class="check-in-item check-in-sc" wx:for="{{listSet[group.id]}}" wx:key="{{item.id}}">
+                                        <view bindtap="targetActionRun" class="sc-box" data-action=">schedule-detail?id={{item.sc.id}}">
+                                            <ui-img class="sc-image" mode="aspectFill" src="{{item.course.image}}"></ui-img>
+                                            <view class="sc-info">
+                                                <view class="sc-name">{{item.course.name}}</view>
+                                                <view class="sc-time">{{utils.dateRangeFormat(item.sc.start,item.sc.end,'M月d日 hh:mm','-')}}</view>
+                                                <ui-line action=">coach?id={{item.coach.id}}" catchtap="noopFunc" class="ui-info" label="教练" valueAlign="left">
+                                                    <ui-img class="sc-avatar" mode="aspectFill" src="{{item.coach.avatar}}"></ui-img>
+                                                    <text>{{item.coach.name}}</text>
+                                                </ui-line>
+                                                <ui-line action=">store?id={{item.store.id}}" catchtap="noopFunc" class="ui-info" label="地点" value="{{item.store.name}}" valueAlign="left"></ui-line>
+                                            </view>
+                                        </view>
+                                        <view class="check-in-operate">
+                                            <view bindtap="targetActionRun" class="operate-btn" data-action=">order?id={{item.orderID}}" hoverClass="_hover" wx:if="{{item.orderID}}">
+                                                <i class="iconfont icon-ui-order"></i>订单</view>
+                                            <view class="check-in-checked" wx:if="{{item.isChecked}}">已签到</view>
+                                            <view bindtap="onCheckInTap" class="operate-btn check-in _hover-brightness-btn" data-id="{{item.id}}" data-info="{{item}}" data-place="[{{index}}]" data-type="sc" hoverClass="_hover" wx:elif="{{item.canCheckIn}}">
+                                                <i class="iconfont icon-ui-qrc"></i>签到</view>
+                                            <view class="check-in-canont" wx:else>还未到签到时间</view>
+                                        </view>
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <view class="check-in-item check-in-coach" wx:for="{{listSet[group.id]}}" wx:key="{{item.id}}">
+                                        <view class="coach-box">
+                                            <view bindtap="targetActionRun" class="coach-info" data-action=">coach?id={{item.coach.id}}">
+                                                <ui-img class="coach-avatar" mode="aspectFill" src="{{item.coach.avatar}}"></ui-img>
+                                                <view class="coach-info-text">
+                                                    <view class="coach-name">{{item.coach.name}}</view>
+                                                    <view class="coach-intro">{{item.coach.intro}}</view>
+                                                </view>
+                                            </view>
+                                            <view class="coach-btns">
+                                                <view bindtap="targetActionRun" class="coach-btn {{item.coach.wechat?'':'_disabled'}}" data-action=":copyText" data-action-value="{{item.coach.wechat}}" hoverClass="_hover">
+                                                    <i class="iconfont icon-info-wechat"></i>
+                                                    <text>{{item.coach.wechat?'复制微信号':'未填微信号'}}</text>
+                                                </view>
+                                                <view bindtap="targetActionRun" class="coach-btn {{item.coach.phone?'':'_disabled'}}" data-action=":callPhone" data-action-value="{{item.coach.phone}}" hoverClass="_hover">
+                                                    <i class="iconfont icon-info-phone"></i>
+                                                    <text>{{item.coach.wechat?'拨打手机':'未填手机号'}}</text>
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <view class="coach-purchase-list">
+                                            <view class="coach-purchase" wx:if="{{purchase.left}}" wx:for="{{item.items}}" wx:for-index="purchaseIndex" wx:for-item="purchase" wx:key="{{purchase.id}}">
+                                                <view class="coach-purchase-progress">
+                                                    <view class="_fill" style="height:{{purchase.left/purchase.total*100}}%"></view>
+                                                </view>
+                                                <view class="coach-purchase-info">节数： <b>{{purchase.left}}</b>/{{purchase.total}}</view>
+                                                <view bindtap="targetActionRun" class="operate-btn" data-action=">order?id={{purchase.orderID}}" hoverClass="_hover" wx:if="{{purchase.orderID}}">
+                                                    <i class="iconfont icon-ui-order"></i>订单</view>
+                                                <view bindtap="onCheckInTap" class="operate-btn {{purchase.isChecked?'':'check-in'}} _hover-brightness-btn" data-again="{{purchase.isChecked}}" data-id="{{purchase.id}}" data-info="{{item}}" data-left="{{purchase.left}}" data-place="[{{index}}].items[{{purchaseIndex}}]" data-type="coach" hoverClass="_hover">
+                                                    <i class="iconfont icon-ui-qrc"></i>{{purchase.isChecked?'今日已签到':'签到'}}</view>
+                                            </view>
+                                            <view class="coach-purchase-empty">
+                                                <text>没有待签到的课程</text>
+                                                <view catchtap="targetActionRun" class="common-btn _hover-brightness-btn" data-action=">coach?id={{item.coach.id}}" hoverClass="_hover">去购买</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                            <ui-ipx></ui-ipx>
+                        </scroll-view>
+                    </ui-status>
+                </swiper-item>
+            </swiper>
+        </view>
+    </block>
+    <ui-login wx:else></ui-login>
+    <ui-fade id="check-in-popup" slot="append" tapMaskHide="{{false}}">
+        <view class="popup-box">
+            <view class="popup-qrc">
+                <view class="popup-success" wx:if="{{checkIn.success}}">
+                    <icon size="200rpx" type="success"></icon>
+                    <text>签到成功</text>
+                </view>
+                <image src="{{checkIn.qrcImg}}" wx:if="{{checkIn.qrcImg}}"></image>
+                <ui-loading wx:else></ui-loading>
+            </view>
+            <view class="popup-title">{{checkIn.type==='sc'?'团课':'私教课程'}}签到</view>
+            <view class="popup-info">
+                <block wx:if="{{checkIn.type==='sc'}}">
+                    <ui-img class="popup-info-image" mode="aspectFill" src="{{checkIn.info.course.image}}"></ui-img>
+                    <view class="popup-info-text">
+                        <view class="popup-info-name">{{checkIn.info.course.name}}</view>
+                        <view class="popup-info-time">{{utils.dateRangeFormat(checkIn.info.sc.start,checkIn.info.sc.end,'M月d日 hh:mm','-')}}</view>
+                        <view class="popup-info-coach">教练：{{checkIn.info.coach.name}}</view>
+                        <view class="popup-info-store">地点：{{checkIn.info.store.name}}</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <ui-img class="popup-info-image" mode="aspectFill" src="{{checkIn.info.coach.avatar}}"></ui-img>
+                    <view class="popup-info-text">
+                        <view class="popup-info-name">{{checkIn.info.coach.name}}</view>
+                        <view class="popup-info-intro">{{checkIn.info.coach.intro}}</view>
+                    </view>
+                </block>
+            </view>
+            <view class="popup-user">
+                <view class="_label">签到人：</view>
+                <image class="_avatar" mode="aspectFit" src="{{userData.avatar}}"></image>
+                <view class="_name">{{userData.nickName}}</view>
+            </view>
+        </view>
+        <view bindtap="hidePopup" class="popup-close" hoverClass="_hover">关闭</view>
+    </ui-fade>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

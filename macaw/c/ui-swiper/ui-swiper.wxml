@@ -1,0 +1,7 @@
+<swiper autoplay="{{autoplay}}" bindchange="onChange" circular="{{circular}}" class="ui-swiper" current="{{current}}" duration="{{duration}}" easingFunction="{{easingFunction}}" interval="{{interval}}" nextMargin="{{nextMargin}}" previousMargin="{{previousMargin}}">
+    <swiper-item class="ui-swiper-item" wx:for="{{items}}" wx:key="{{index}}">
+        <view bindtap="targetActionRun" class="ui-swiper-content" data-action="{{item.action}}">
+            <ui-img class="_image" mode="aspectFill" src="{{item.image}}"></ui-img>
+        </view>
+    </swiper-item>
+</swiper>

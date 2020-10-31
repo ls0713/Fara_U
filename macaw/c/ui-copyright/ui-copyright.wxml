@@ -1,0 +1,9 @@
+<view class="ui-copyright-wrap" wx:if="{{config.enabled}}">
+    <view bindtap="targetActionRun" class="ui-copyright" data-action="{{config.action}}">
+        <view class="_owner-info">
+            <image class="_image" mode="aspectFit" src="{{config.image}}" wx:if="{{config.image}}"></image>
+            <text>{{config.owner}}</text>
+        </view>
+        <rich-text class="_more" nodes="{{config.more}}" wx:if="{{config.more}}"></rich-text>
+    </view>
+</view>

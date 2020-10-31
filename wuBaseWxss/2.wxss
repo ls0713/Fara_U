@@ -1,0 +1,42 @@
+.summary-view {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 10rpx var(--top-btn-right) 20rpx 20rpx;
+    font-size: 28rpx;
+    white-space: nowrap;
+}
+
+.summary-view ._label {
+    font-size: .9em;
+}
+
+.summary-view ._value {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.summary-view ui-price {
+    color: inherit;
+    font-size: 1.4em;
+    margin-bottom: -.1em;
+}
+
+.summary-view ._detail {
+    margin-left: auto;
+    padding: 0 30rpx;
+    height: 54rpx;
+    border-radius: 27rpx;
+    border: 1rpx solid var(--btn-border-color);
+    color: var(--btn-front-color);
+    background-color: var(--btn-background-color);
+    transition: background-color .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-view ._detail._hover {
+    background-color: var(--btn-hover-background-color);
+}

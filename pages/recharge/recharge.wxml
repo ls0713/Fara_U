@@ -1,0 +1,90 @@
+<ui-page id="ui-page">
+    <block wx:if="{{userData}}">
+        <view class="recharge-header" slot="top-append">
+            <view class="recharge-label">
+                <text wx:if="{{type==='level'}}">我的等级</text>
+                <text wx:elif="{{type==='balance'}}">我的余额</text>
+                <text wx:elif="{{type==='unlimited'}}">我的无限次约课权</text>
+                <text wx:elif="{{type==='count'}}">我的剩余约课次数</text>
+                <text wx:elif="{{type==='card'}}">我的可用计次卡</text>
+            </view>
+            <view class="recharge-value">
+                <member-level class="user-level" levelId="{{userData.level}}" wx:if="{{type==='level'}}"></member-level>
+                <ui-price class="user-balance" value="{{userData.balance}}" wx:elif="{{type==='balance'}}"></ui-price>
+                <block wx:elif="{{type==='unlimited'}}">
+                    <block wx:if="{{userData.unlimitedEnd}}">
+                        <view class="user-unlimited-expired" wx:if="{{userData.unlimitedExpired}}">已过期于 {{utils.dateFormat(userData.unlimitedEnd,'yyyy-MM-dd')}}</view>
+                        <view class="user-unlimited" wx:else>
+                            <text class="_sub">有效期至</text>{{utils.dateFormat(userData.unlimitedEnd,'yyyy-MM-dd')}}</view>
+                    </block>
+                    <text class="user-unlimited-void" wx:else>未购买</text>
+                </block>
+                <text class="user-count" wx:elif="{{type==='count'}}">{{userData.countLeft}} 次</text>
+                <text class="user-cards-num" wx:elif="{{type==='card'}}">{{userData.cards.length}} 张</text>
+            </view>
+        </view>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+            <view class="recharge-list">
+                <view bindtap="onItemTap" class="recharge-item" data-index="{{index}}" hoverClass="_hover" wx:for="{{list}}" wx:key="{{item.id}}">
+                    <member-level class="recharge-level" levelId="{{item.id}}" wx:if="{{type==='level'}}"></member-level>
+                    <block wx:else>
+                        <view class="recharge-name">{{item.name}}</view>
+                        <view class="recharge-attr" wx:if="{{type==='balance'}}">
+                            <em>余额</em>+<ui-price class="decolor-price" value="{{item.money}}"></ui-price>
+                        </view>
+                        <view class="recharge-attr" wx:elif="{{type==='unlimited'}}">
+                            <em>时长</em>+{{item.days}}天</view>
+                        <view class="recharge-attr" wx:elif="{{type==='count'}}">
+                            <em>次数</em>+{{item.count}}</view>
+                        <block wx:elif="{{type==='card'}}">
+                            <view class="recharge-attr" wx:if="{{item.course}}">
+                                <em>专属: </em>
+                                <text class="course-flag">{{item.course.name}}</text>
+                            </view>
+                            <view class="recharge-attr">
+                                <em>次数: </em>{{item.count}}次</view>
+                            <view class="recharge-attr">
+                                <em>有效期: </em>{{item.days?item.days+'天':'永久有效'}}</view>
+                        </block>
+                    </block>
+                    <view class="recharge-price">售价: <ui-price value="{{item.price}}"></ui-price>
+                    </view>
+                </view>
+            </view>
+        </ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+    <ui-fade bottom id="buy-view" slot="append">
+        <view class="buy-view">
+            <view class="buy-header">
+                <member-level class="buy-level" levelId="{{list[buyIndex].id}}" wx:if="{{type==='level'}}"></member-level>
+                <view class="buy-name" wx:else>{{list[buyIndex].name}}</view>
+                <view class="buy-info">
+                    <ui-line class="ui-info" label="面值" wx:if="{{type==='balance'}}">
+                        <ui-price class="decolor-price" value="{{list[buyIndex].money}}"></ui-price>
+                    </ui-line>
+                    <ui-line class="ui-info" label="时长" value="{{list[buyIndex].days}}天" wx:elif="{{type==='unlimited'}}"></ui-line>
+                    <ui-line class="ui-info" label="次数" value="{{list[buyIndex].count}}次" wx:elif="{{type==='count'}}"></ui-line>
+                    <block wx:elif="{{type==='card'}}">
+                        <ui-line action=">course?id={{list[buyIndex].course.id}}" class="ui-info" label="课程专属" wx:if="{{list[buyIndex].course}}">
+                            <text class="course-flag">{{list[buyIndex].course.name}}</text>
+                        </ui-line>
+                        <ui-line class="ui-info" label="次数" value="{{list[buyIndex].count}}次"></ui-line>
+                        <ui-line class="ui-info" label="有效期" value="{{list[buyIndex].days?list[buyIndex].days+'天':'永久有效'}}"></ui-line>
+                    </block>
+                </view>
+            </view>
+            <scroll-view scrollY class="buy-scroll" wx:if="{{list[buyIndex].detail}}">
+                <ui-html class="buy-detail" nodes="{{list[buyIndex].detail}}"></ui-html>
+            </scroll-view>
+            <view class="buy-footer">
+                <view class="buy-price-text">需支付：<ui-price class="buy-price" value="{{list[buyIndex].price}}"></ui-price>
+                </view>
+                <view bindtap="onBuyTap" class="buy-btn common-btn _hover-brightness-btn" hoverClass="_hover">立即购买</view>
+            </view>
+            <ui-ipx></ui-ipx>
+        </view>
+    </ui-fade>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

@@ -1,0 +1,124 @@
+.course-header {
+    transform: translateZ(0);
+    padding-top: 600rpx;
+    margin-top: -600rpx;
+    background-color: var(--top-background-color);
+    color: var(--top-front);
+    backdrop-filter: var(--top-filter);
+}
+
+.course-name {
+    align-self: center;
+    font-size: 46rpx;
+    margin-bottom: 20rpx;
+    letter-spacing: .1em;
+    text-indent: .1em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 4rpx 0 rgba(0,0,0,.1);
+}
+
+.course-intro {
+    font-size: 28rpx;
+    opacity: .8;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: .06em;
+    padding: 0 20rpx 30rpx 20rpx;
+}
+
+.course-graphics {
+    width: 100%;
+    height: 338rpx;
+    position: relative;
+    background-color: var(--section-bg);
+}
+
+.course-images {
+    height: 100%;
+    width: 100%;
+}
+
+.course-images-item {
+    height: 100%;
+    width: 100%;
+}
+
+.course-images-item ui-img {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.course-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.course-video-play {
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+    font-size: 80rpx;
+    color: #fff;
+    text-shadow: 0 0 10rpx rgba(0,0,0,.2);
+}
+
+.section-top-border {
+    border-top: 1rpx solid var(--line-d-006);
+}
+
+.course-section {
+    background-color: var(--section-bg);
+    margin-bottom: 10rpx;
+    backdrop-filter: var(--block-blur-4);
+}
+
+.course-info-bar {
+    display: flex;
+    align-items: center;
+    padding-right: 20rpx;
+    height: 80rpx;
+    font-size: 28rpx;
+    color: var(--light-60);
+    border-bottom: 1rpx solid var(--line-d-008);
+    white-space: nowrap;
+}
+
+.course-info-bar>._icon {
+    color: var(--light-10);
+    font-size: 40rpx;
+    margin-right: 10rpx;
+}
+
+.course-info-bar>._value {
+    margin-left: auto;
+}
+
+.course-info-bar>._label {
+}
+
+.course-info-content {
+    padding: 20rpx 40rpx;
+    font-size: 28rpx;
+    color: var(--light-30);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    white-space: pre-wrap;
+}
+
+.difficulty-flag {
+    padding: 0 20rpx;
+    line-height: 50rpx;
+    color: #fff;
+    border-radius: 10rpx;
+}
+
+.course-radar {
+    height: 360rpx;
+    width: 100%;
+    fill: var(--section-bg);
+}

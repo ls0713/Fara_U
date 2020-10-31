@@ -1,0 +1,65 @@
+<ui-page id="ui-page">
+    <block wx:if="{{coach}}">
+        <view class="_top-holder"></view>
+        <ui-img class="coach-avatar" mode="aspectFill" src="{{coach.avatar}}"></ui-img>
+        <view class="coach-info">
+            <view class="coach-info-line">
+                <view class="coach-name">{{coach.name}}</view>
+                <view bindtap="showTrems" class="coach-private-flag" wx:if="{{coach.isPrivate}}">私教</view>
+            </view>
+            <view class="coach-intro">{{coach.intro}}</view>
+        </view>
+        <view class="coach-section">
+            <view class="coach-float-content">
+                <view class="coach-private-price" wx:if="{{coach.isPrivate}}">
+                    <view class="_unit-price">
+                        <ui-price class="_price" value="{{coach.price}}"></ui-price>/节
+					</view>
+                    <view class="_min-order">起售节数:{{coach.minOrder}}</view>
+                </view>
+                <view class="coach-say">
+                    <i class="iconfont icon-ui-quot-left"></i>
+                    <text class="_content">{{coach.say}}</text>
+                    <i class="iconfont icon-ui-quot-right"></i>
+                </view>
+            </view>
+            <view class="coach-float-clear"></view>
+            <view class="coach-private-info" wx:if="{{coach.isPrivate&&coach.showContact}}">
+                <view bindtap="targetActionRun" class="coach-private-info-item" data-action=":copyText" data-action-value="{{coach.wechat}}" hoverClass="_hover" wx:if="{{coach.wechat}}">
+                    <i class="iconfont icon-info-wechat"></i>{{coach.wechat}}</view>
+                <view bindtap="targetActionRun" class="coach-private-info-item" data-action=":callPhone" data-action-value="{{coach.phone}}" hoverClass="_hover" wx:if="{{coach.phone}}">
+                    <i class="iconfont icon-info-phone"></i>{{coach.phone}}</view>
+            </view>
+            <view class="coach-section-content" wx:if="{{coach.onlyDetails}}">
+                <ui-html nodes="{{coach.details}}"></ui-html>
+            </view>
+        </view>
+        <block wx:if="{{!coach.onlyDetails}}">
+            <ui-section class="coach-section" icon="coach-professional" iconColor="#ffe324" label="专业资质">
+                <view class="coach-section-content">{{coach.professional}}</view>
+            </ui-section>
+            <ui-section class="coach-section" icon="coach-skillful" iconColor="#ae3232" label="擅长项目" wx:if="{{coach.isPrivate}}">
+                <view class="coach-section-content">
+                    <view class="coach-skillful">
+                        <view class="_item" wx:for="{{coach.skillful}}" wx:key="$this">{{item}}</view>
+                    </view>
+                </view>
+            </ui-section>
+            <ui-section class="coach-section" icon="ui-details" iconColor="#30333c" label="详细介绍" wx:if="{{coach.details}}">
+                <view class="coach-section-content">
+                    <ui-html nodes="{{coach.details}}"></ui-html>
+                </view>
+            </ui-section>
+        </block>
+        <view class="common-bottom-btn-holder" wx:if="{{coach.isPrivate}}"></view>
+        <ui-ipx></ui-ipx>
+        <view class="common-bottom-btn-wrap" slot="append" wx:if="{{coach.isPrivate}}">
+            <view bindtap="onBtnTap" class="common-bottom-btn _hover-brightness-btn" hoverClass="_hover">购买私教课程</view>
+            <ui-ipx></ui-ipx>
+        </view>
+        <ui-login passive class="ui-login-passive" id="ui-login" slot="append"></ui-login>
+        <trems-popup id="trems-popup" slot="append" title="私教规则" use="privateCoachTerms"></trems-popup>
+    </block>
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+</ui-page>
+<ui-shortcut></ui-shortcut>

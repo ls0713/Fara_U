@@ -1,0 +1,58 @@
+<ui-page id="ui-page">
+    <block wx:if="{{course}}">
+        <view class="course-header">
+            <view class="course-name">{{course.name}}</view>
+            <view class="course-intro">{{course.intro}}</view>
+        </view>
+        <view class="course-section" wx:if="{{course.onlyDetails}}">
+            <ui-html nodes="{{course.details}}"></ui-html>
+        </view>
+        <block wx:else>
+            <view class="course-section">
+                <support-table allowed="{{course}}"></support-table>
+                <view class="course-graphics">
+                    <swiper autoplay indicatorDots class="course-images">
+                        <swiper-item class="course-images-item" wx:for="{{course.images}}" wx:key="{{index}}">
+                            <ui-img mode="aspectFill" src="{{item}}"></ui-img>
+                        </swiper-item>
+                    </swiper>
+                    <view catchtap="onVideoPlayTap" class="course-video-play iconfont icon-ui-video-play" wx:if="{{course.videoSrc}}"></view>
+                    <video autoplay bindended="stopVideo" binderror="onVideoError" class="course-video" poster="{{course.videoPoster}}" src="{{course.videoSrc}}" wx:if="{{playing}}"></video>
+                </view>
+            </view>
+            <view class="course-section">
+                <ui-section icon="course-class" iconColor="#8d38c8" label="课程体系">
+                    <course-sysclass slot="bar-description" sysclass="{{course.sysClass}}"></course-sysclass>
+                </ui-section>
+                <ui-section class="section-top-border" icon="course-difficulty" iconColor="#ede22e" label="难易程度">
+                    <view class="difficulty-flag" slot="bar-description" style="background-color: {{difficultyFlags[course.difficulty].color}};">{{difficultyFlags[course.difficulty].text}}</view>
+                    <view class="course-info-content">
+                        <ff-canvas useImage canvasId="course-radar" class="course-radar" id="course-radar" opts="{{radarOpts}}"></ff-canvas>
+                    </view>
+                </ui-section>
+            </view>
+            <ui-section class="course-section" icon="course-description" iconColor="#2b99d9" label="课程描述" wx:if="{{course.description}}">
+                <view class="course-info-content">{{course.description}}</view>
+            </ui-section>
+            <ui-section class="course-section" icon="course-precautions" iconColor="#ae3232" label="注意事项" wx:if="{{course.precautions}}">
+                <view class="course-info-content">{{course.precautions}}</view>
+            </ui-section>
+            <ui-section class="course-section" icon="course-appliance" iconColor="#57a157" label="自带物品" wx:if="{{course.selfContained}}">
+                <view class="course-info-content">{{course.selfContained}}</view>
+            </ui-section>
+            <ui-section class="coach-section" icon="ui-details" iconColor="#30333c" label="详细介绍" wx:if="{{course.details}}">
+                <view class="course-info-content">
+                    <ui-html nodes="{{course.details}}"></ui-html>
+                </view>
+            </ui-section>
+        </block>
+        <view class="common-bottom-btn-holder"></view>
+        <ui-ipx></ui-ipx>
+        <view class="common-bottom-btn-wrap" slot="append">
+            <view bindtap="targetActionRun" class="common-bottom-btn _hover-brightness-btn" data-action=">course-schedule?id={{course.id}}" hoverClass="_hover">查看课程排期</view>
+            <ui-ipx></ui-ipx>
+        </view>
+    </block>
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+</ui-page>
+<ui-shortcut></ui-shortcut>

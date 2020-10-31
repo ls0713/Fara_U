@@ -1,0 +1,57 @@
+.main-view {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-box {
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-4);
+    margin-bottom: 10rpx;
+}
+
+.withdraw-box {
+    padding: 30rpx;
+}
+
+.withdraw-label {
+    font-size: 28rpx;
+    color: var(--light-60);
+    margin-bottom: 10rpx;
+}
+
+.withdraw-money {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2rpx solid var(--line-d-006);
+    font-family: "avanti";
+    font-weight: bold;
+    padding: 10rpx;
+    color: var(--light-10);
+}
+
+.money-symbol {
+    flex-shrink: 0;
+    margin-right: 10rpx;
+    font-size: 50rpx;
+    position: relative;
+    top: -8rpx;
+}
+
+.money-input {
+    font-size: 70rpx;
+    flex: 1 1 0%;
+    height: 90rpx;
+}
+
+.withdraw-tip {
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    color: var(--light-40);
+}
+
+.withdraw-all {
+    float: right;
+    color: var(--theme-color);
+}

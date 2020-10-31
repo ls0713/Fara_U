@@ -1,0 +1,38 @@
+.ui-fade-wrap {
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transition: background .2s ease-out;
+}
+
+.ui-fade-content-wrap {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transition: opacity .2s ease,-webkit-transform .2s ease-out;
+    transition: transform .2s ease-out,opacity .2s ease;
+    transition: transform .2s ease-out,opacity .2s ease,-webkit-transform .2s ease-out;
+}
+
+.ui-fade-wrap._show {
+    pointer-events: auto;
+    background: var(--ui-fade-mask-background);
+}
+
+.ui-fade-wrap._show .ui-fade-content-wrap {
+    transform: translate3D(0,0,0)!important;
+    opacity: 1!important;
+}
+
+.ui-fade-content {
+    transform: translateZ(0);
+    --ui-fade-status: 0;
+}
+
+.ui-fade-wrap._show .ui-fade-content {
+    --ui-fade-status: 1;
+}

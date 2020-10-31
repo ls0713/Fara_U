@@ -1,0 +1,13 @@
+<ui-fade bottom id="trems-popup">
+    <view class="_trems-popup-view">
+        <view class="_trems-popup-top">
+            <view class="_trems-popup-title">{{title}}</view>
+        </view>
+        <scroll-view scrollY class="_trems-popup-scroll">
+            <view class="_trems-popup-content">
+                <ui-html nodes="{{nodes}}"></ui-html>
+            </view>
+        </scroll-view>
+        <ui-ipx></ui-ipx>
+    </view>
+</ui-fade>

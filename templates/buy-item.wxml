@@ -1,0 +1,36 @@
+<template name="buy-item-vc">
+    <view class="buy-item-box buy-item-box-vc">
+        <ui-img class="_image" mode="aspectFill" src="{{cover}}"></ui-img>
+        <view class="_info">
+            <view class="_title">{{title}}</view>
+            <view class="_intro">{{intro}}</view>
+        </view>
+    </view>
+</template>
+<template name="buy-item-coach">
+    <view class="buy-item-box buy-item-box-coach">
+        <ui-img class="_image" mode="aspectFill" src="{{avatar}}"></ui-img>
+        <view class="_info">
+            <view class="_title">{{name}}</view>
+            <view class="_intro">{{intro}}</view>
+            <view class="_bottom">
+                <view class="_min-order">起售节数:{{minOrder}}</view>
+                <view class="_unit-price">
+                    <ui-price class="_price" value="{{price}}"></ui-price>/节
+				</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="buy-item-sc">
+    <view class="buy-item-box buy-item-box-sc">
+        <ui-img class="_image" mode="aspectFill" src="{{course.image}}"></ui-img>
+        <view class="_info">
+            <view class="_title">{{course.name}}</view>
+            <view class="_time">时间: {{utils.dateRangeFormat(start,end,'MM.dd hh:mm',' - ')}}</view>
+            <view class="_coach">教练: {{coach.name}}</view>
+            <view class="_store">地址: {{store.name}}</view>
+        </view>
+    </view>
+</template>
+<wxs module="utils" src="../macaw/common/wxs-utils.wxs" />

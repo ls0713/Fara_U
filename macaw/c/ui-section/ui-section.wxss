@@ -1,0 +1,11 @@
+.ui-section>.ui-entrance {
+    height: var(--ui-section-bar-height);
+    font-size: var(--ui-section-bar-font-size);
+    --ui-line-icon-color: var(--ui-section-icon-color);
+    --ui-line-label-color: var(--ui-section-label-color);
+    --ui-line-label-color-hover: var(--ui-section-label-color-hover);
+    --ui-line-value-size: 1em;
+    --ui-line-dividing-left: var(--ui-section-dividing-left);
+    --ui-line-dividing-right: var(--ui-section-dividing-right);
+    --ui-line-dividing-border: var(--ui-section-dividing-border);
+}

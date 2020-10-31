@@ -1,0 +1,5 @@
+<view class="ui-loading-wrap">
+    <view class="ui-loading">
+        <i class="_i" wx:for="12345678" wx:key="{{index}}"></i>
+    </view>
+</view>

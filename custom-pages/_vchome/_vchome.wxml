@@ -1,0 +1,42 @@
+<ui-page scrollListener bindscrolltolower="nextPage" config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{_status.main.ready}}">
+        <view class="_top-holder"></view>
+        <view class="section-box" wx:if="{{historyVcs.length}}">
+            <ui-line class="ui-title section-title" icon="ui-recent" iconColor="#16c2c2" label="最近学习">
+                <view bindtap="clearHistory">清除历史</view>
+            </ui-line>
+            <scroll-view scrollX class="history-list-scroll">
+                <view class="history-list">
+                    <view bindtap="targetActionRun" class="history-item" data-action=">vc?id={{item.vcID}}&vid={{item.playID}}&time={{item.playTime}}&autoplay=true" wx:for="{{historyVcs}}" wx:key="{{item.vcID}}">
+                        <ui-img lazyLoad class="_cover" mode="aspectFill" src="{{item.playCover}}"></ui-img>
+                        <view class="_info">
+                            <text class="_title">{{item.playTitle}}</text>
+                            <text class="_speaker">主讲人：{{item.playSpeaker}}</text>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="section-box" wx:if="{{favoriteVcs.length}}">
+            <ui-line action=">favorites?type=vc" class="ui-title section-title" icon="ui-favorites" iconColor="#ffe324" label="我的收藏" value="查看更多"></ui-line>
+            <vc-list items="{{favoriteVcs}}" mode="scroll-free"></vc-list>
+        </view>
+        <view class="types-list">
+            <view bindtap="targetActionRun" class="types-item" data-action=">vcs?type={{item.id}}" hoverClass="_hover" wx:for="{{typesList}}" wx:key="{{item.id}}">
+                <image class="_image" mode="aspectFill" src="{{item.image}}"></image>
+                <view class="_content">
+                    <view class="_name">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{recommendVcs.length}}">
+            <view class="home-section-title">
+                <text class="_text">推荐视频课程</text>
+            </view>
+            <vc-list items="{{recommendVcs}}"></vc-list>
+            <ui-pager-status binderrorbtntap="nextPage" status="{{_pager.recommend}}"></ui-pager-status>
+        </block>
+    </block>
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    <ui-nav-placeholder slot="append" wx:if="{{pageType==='main'}}"></ui-nav-placeholder>
+</ui-page>

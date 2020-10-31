@@ -1,0 +1,23 @@
+<ui-page id="ui-page">
+    <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+        <view class="promotion-view">
+            <view class="promotion-header">
+                <ui-img class="promotion-image" mode="aspectFill" src="{{promotion.image}}"></ui-img>
+                <view class="promotion-mask">
+                    <view class="_top-holder"></view>
+                    <view class="promotion-info">
+                        <view class="promotion-title">{{promotion.title}}</view>
+                        <view class="promotion-time iconfont icon-ui-date">活动时间：{{utils.dateFormat(promotion.time,'yyyy-MM-dd')}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="promotion-content">
+                <ui-html nodes="{{promotion.content}}"></ui-html>
+            </view>
+            <ui-ipx></ui-ipx>
+        </view>
+    </ui-status>
+    <view bindtap="targetActionRun" class="promotion-call iconfont icon-ui-call" data-action=":callPhone" data-action-value="{{promotion.tel}}" slot="append"></view>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

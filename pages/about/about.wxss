@@ -1,0 +1,27 @@
+.main-view {
+    min-height: 100%;
+    background-color: var(--section-bg);
+    backdrop-filter: var(--block-blur-2);
+    font-size: 30rpx;
+    color: var(--light-30);
+    padding:20rpx 30rpx;
+    box-sizing: border-box;
+    line-height: 1.6;
+    letter-spacing: .02em;
+}
+.about-us{
+    color: var(--light-30);
+    font-warp: warp;
+    opacity: 0.7;
+    work-break:normal;
+    white-space:normal;
+    text-indent: 40rpx;
+}
+.phone{
+    color: var(--light-30);
+    opacity: 0.7;
+}
+.desc{
+    display: inline-block;
+    opacity: 0.4;
+}

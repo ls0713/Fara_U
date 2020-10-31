@@ -1,0 +1,5 @@
+<view class="ui-stepper">
+    <view bindtap="sub" class="_btn _minus {{value<=min?'_disable':''}}" hoverClass="_hover">-</view>
+    <input bindblur="inputBlur" bindinput="inputChange" class="_input {{value<=min&&value>=max?'_disable':''}}" type="number" value="{{value}}"></input>
+    <view bindtap="add" class="_btn _plus {{value>=max?'_disable':''}}" hoverClass="_hover">+</view>
+</view>

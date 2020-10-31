@@ -1,0 +1,55 @@
+.home-banner {
+    margin-bottom: 10rpx;
+}
+
+.home-guide {
+    margin: 20rpx;
+}
+
+.home-section {
+    margin-bottom: 20rpx;
+}
+
+.home-section-hot {
+    background-color: var(--section-bg);
+}
+
+.home-section-title {
+    color: var(--light-14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72rpx;
+}
+
+.home-section-title>._text {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 34rpx;
+    letter-spacing: .2em;
+    text-indent: .2em;
+    text-shadow: 0 4rpx 0 var(--block-d-010);
+    position: relative;
+}
+
+.home-section-title>._text:before,.home-section-title>._text:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 0;
+    width: 60rpx;
+    border-bottom: 2rpx solid var(--line-d-020);
+    margin: 0 10rpx;
+}
+
+.home-section-title>._text:before {
+    right: 100%;
+}
+
+.home-section-title>._text:after {
+    left: 100%;
+}
+
+.home-section-courses>.home-section-title {
+    margin-bottom: 10rpx;
+}

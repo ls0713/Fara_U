@@ -1,0 +1,121 @@
+.ui-tabs-wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0;
+    position: relative;
+}
+
+.ui-tabs-indicator {
+    position: absolute;
+    width: var(--ui-tabs-indicator-width);
+    height: var(--ui-tabs-indicator-height);
+    transition: all .3s ease-out;
+    z-index: 0;
+}
+
+.ui-tabs-indicator:empty {
+    background-color: var(--active-color);
+}
+
+.ui-tabs-vertical .ui-tabs-indicator {
+    top: 0;
+    right: 0;
+    --ui-tabs-indicator-width: var(--ui-tabs-width);
+}
+
+.ui-tabs-vertical .ui-tabs-indicator:empty {
+    width: 6rpx;
+}
+
+.ui-tabs-horizontal .ui-tabs-indicator {
+    left: 0;
+    bottom: 0;
+    --ui-tabs-indicator-height: var(--ui-tabs-height);
+}
+
+.ui-tabs-horizontal .ui-tabs-indicator:empty {
+    height: 6rpx;
+}
+
+.ui-tabs-vertical {
+    width: var(--ui-tabs-width);
+    border-right-width: 1rpx;
+    padding: 20rpx 0;
+}
+
+.ui-tabs-horizontal {
+    height: var(--ui-tabs-height);
+    padding: 0;
+}
+
+.ui-tabs {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.ui-tabs-items-box {
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+}
+
+.ui-tabs-vertical .ui-tabs-items-box {
+    width: var(--ui-tabs-width);
+}
+
+.ui-tabs-horizontal .ui-tabs-items-box {
+    height: var(--ui-tabs-height);
+}
+
+.ui-tabs-vertical>.ui-tabs._nonscroll {
+    width: 100%;
+    flex-direction: column;
+}
+
+.ui-tabs-vertical>.ui-tabs._scroll {
+    width: calc(100% + 12rpx);
+}
+
+.ui-tabs-vertical .ui-tabs-item {
+    line-height: var(--ui-tabs-line-height);
+    margin: var(--ui-tabs-item-gap) 0;
+    margin-right: 12rpx;
+}
+
+.ui-tabs-horizontal>.ui-tabs._nonscroll {
+    height: 100%;
+}
+
+.ui-tabs-horizontal>.ui-tabs._scroll {
+    height: calc(100% + 12rpx);
+}
+
+.ui-tabs-horizontal .ui-tabs-item {
+    display: inline-block;
+    line-height: var(--ui-tabs-line-height);
+    margin: 0 calc(var(--ui-tabs-item-gap) / 2);
+    padding: 0 30rpx;
+}
+
+.ui-tabs-item {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    white-space: nowrap;
+    flex: 1 1 0%;
+    transition: color .4s ease;
+}
+
+.ui-tabs-item._active {
+    color: var(--ui-tabs-item-active-color);
+    font-weight: var(--ui-tabs-item-active-weight);
+}
+
+.ui-tabs._scroll .ui-tabs-items-box {
+    display: block;
+}

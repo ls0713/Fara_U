@@ -1,0 +1,28 @@
+.ui-swiper {
+    height: 100%;
+    width: 100%;
+    height: calc(100% + var(--ui-swiper-padding-top) + var(--ui-swiper-padding-bottom));
+}
+
+.ui-swiper-item {
+    height: 100%;
+    padding: var(--ui-swiper-padding-top) var(--ui-swiper-padding-right) var(--ui-swiper-padding-bottom) var(--ui-swiper-padding-left);
+    box-sizing: border-box;
+}
+
+.ui-swiper-content {
+    width: 100%;
+    height: 100%;
+    background-color: var(--section-bg);
+    border-radius: var(--ui-swiper-radius);
+    box-shadow: var(--ui-swiper-shadow);
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.ui-swiper-content>._image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

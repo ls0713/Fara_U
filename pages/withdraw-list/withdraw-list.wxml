@@ -1,0 +1,37 @@
+<ui-page config="{{pageConfig}}" id="ui-page" topConfig="{{topConfig}}">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{distributor}}">
+            <view class="summary-view" slot="top-append">
+                <view class="_label	">提现记录：</view>
+                <view class="_value	">{{distributor.withdrawCount}} 笔</view>
+            </view>
+            <ui-tabs binditemtap="tabTap" class="main-tabs" current="{{type}}" items="{{typesList}}" slot="top-append"></ui-tabs>
+            <view class="main-view">
+                <swiper bindchange="onResultSwiperChange" class="result-swiper" currentItemId="{{type}}" duration="300">
+                    <swiper-item itemId="{{group.id}}" wx:for="{{typesList}}" wx:for-item="group" wx:key="{{group.id}}">
+                        <ui-status binderrorbtntap="onPageErrorTap" data-type="{{group.id}}" status="{{_status[group.id]}}">
+                            <scroll-view scrollY bindscrolltolower="onNextPage" class="result-view" data-type="{{group.id}}">
+                                <view class="withdraw-list">
+                                    <view class="withdraw-item" hoverClass="_hover" wx:for="{{listSet[group.id]}}" wx:key="{{index}}">
+                                        <view class="_top">
+                                            <view class="_status">{{statusMap[item.status]}}</view>
+                                            <view class="_time">{{utils.dateFormat(item.createTime)}}</view>
+                                        </view>
+                                        <view class="_content">提现 <ui-price value="{{item.money}}"></ui-price>
+                                        </view>
+                                    </view>
+                                </view>
+                                <ui-pager-status binderrorbtntap="onNextPage" data-type="{{group.id}}" status="{{_pager[group.id]}}"></ui-pager-status>
+                                <ui-ipx></ui-ipx>
+                            </scroll-view>
+                        </ui-status>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

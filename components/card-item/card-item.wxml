@@ -1,0 +1,12 @@
+<view class="_card-item">
+    <view class="_top">
+        <view class="_name">{{item.name}}</view>
+        <view class="_course" wx:if="{{item.course}}">{{item.course.name}}</view>
+    </view>
+    <view class="_bottom">
+        <view class="_count">剩余次数: {{item.countLeft}}</view>
+        <view class="_time" wx:if="{{item.end===0}}">永久有效</view>
+        <view class="_time" wx:else>有效期至 {{utils.dateFormat(item.end,'yyyy-MM-dd')}}</view>
+    </view>
+</view>
+<wxs module="utils" src="../../macaw/common/wxs-utils.wxs" />

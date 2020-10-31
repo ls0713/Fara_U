@@ -1,0 +1,31 @@
+.main-view {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.result-swiper {
+    flex: 1 1 0%;
+    overflow: hidden;
+}
+
+.result-view {
+    height: 100%;
+}
+
+.coupon-list {
+    padding-bottom: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.coupon-item {
+    padding-top: 30rpx;
+}
+
+.coupon-item._failed {
+    filter: grayscale(1) opacity(50%);
+    transform: translateZ(0);
+}

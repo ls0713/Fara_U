@@ -1,0 +1,36 @@
+._service-store {
+    border-radius: 10rpx;
+    box-shadow: 0 6rpx 16rpx rgba(0,0,0,.04);
+    transform: translateZ(0);
+    backdrop-filter: var(--block-blur-6);
+    overflow: hidden;
+    background-color: var(--section-bg);
+    color: var(--light-30);
+    font-size: 26rpx;
+}
+
+._service-store>._header {
+    display: flex;
+    padding: 20rpx;
+    border-bottom: 1rpx solid var(--line-d-004);
+    transition: background-color .2s ease;
+}
+
+._service-store>._header._hover {
+    background-color: var(--block-d-002);
+}
+
+._service-store ._toggle {
+    margin-left: auto;
+    color: var(--light-80);
+}
+
+._service-store>._content {
+    display: flex;
+}
+
+._service-store-info {
+    font-size: 26rpx;
+    width: 100%;
+    padding-top: 10rpx;
+}

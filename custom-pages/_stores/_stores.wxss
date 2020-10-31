@@ -1,0 +1,12 @@
+._service-flag {
+    position: absolute;
+    right: 20rpx;
+    top: 0;
+    background-color: var(--theme-color);
+    color: var(--theme-color-front);
+    z-index: 2;
+    border-radius: 0 0 10rpx 10rpx;
+    font-size: 28rpx;
+    padding: 0 20rpx;
+    line-height: 50rpx;
+}

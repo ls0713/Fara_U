@@ -1,0 +1,17 @@
+.main-view {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.result-swiper {
+    flex: 1 1 0%;
+    overflow: hidden;
+}
+
+.result-view {
+    height: 100%;
+    overflow: hidden;
+}

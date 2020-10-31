@@ -1,0 +1,45 @@
+<template name="vc-overview">
+    <view bindtap="targetActionRun" class="vc-overview" data-action=">vc?id={{id}}">
+        <ui-img class="_cover" mode="aspectFill" src="{{cover}}"></ui-img>
+        <view class="_info">
+            <view class="_title">{{title}}</view>
+            <view class="_intro">{{intro}}</view>
+            <view class="_bottom">
+                <view class="_own" wx:if="{{purchased}}">已拥有</view>
+                <view class="_ios" wx:elif="{{iosDisabled}}">无法为iOS端提供服务</view>
+                <ui-price class="_price" value="{{price}}" wx:elif="{{price>0}}"></ui-price>
+                <view class="_own" wx:else>免费</view>
+            </view>
+        </view>
+    </view>
+</template>
+<ui-page id="ui-page">
+    <block wx:if="{{userData}}">
+        <block wx:if="{{typesList}}">
+            <ui-tabs scroll binditemtap="tabTap" current="{{type}}" items="{{typesList}}" slot="top-append"></ui-tabs>
+            <view class="main-view">
+                <view class="sub-view" hidden="{{group.id!==type}}" wx:for="{{typesList}}" wx:for-item="group" wx:key="{{group.id}}">
+                    <ui-status binderrorbtntap="onPageErrorTap" data-type="{{group.id}}" status="{{_status[group.id]}}">
+                        <scroll-view scrollY bindscrolltolower="onNextPage" class="result-view" data-type="{{group.id}}">
+                            <view class="favorite-item-wrap" wx:if="{{!item.removed}}" wx:for="{{listSet[group.id]}}" wx:key="{{item.id}}">
+                                <ui-drag class="favorite-item">
+                                    <view class="favorite-item-content" slot="content">
+                                        <template is="{{group.id}}-overview" data="{{...item}}"></template>
+                                    </view>
+                                    <view class="favorite-item-expand" slot="expand">
+                                        <view catchtap="removeItem" class="iconfont icon-ui-remove _remove" data-id="{{item.id}}" data-index="{{index}}" data-type="{{group.id}}"></view>
+                                    </view>
+                                </ui-drag>
+                            </view>
+                            <ui-pager-status binderrorbtntap="onNextPage" data-type="{{group.id}}" status="{{_pager[group.id]}}"></ui-pager-status>
+                            <ui-ipx></ui-ipx>
+                        </scroll-view>
+                    </ui-status>
+                </view>
+            </view>
+        </block>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

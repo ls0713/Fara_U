@@ -1,0 +1,21 @@
+<ui-page id="ui-page">
+    <block wx:if="{{userData}}">
+        <form reportSubmit bindsubmit="onSubmit" wx:if="{{set}}">
+            <view class="main-view">
+                <view class="info-box">
+                    <ui-line bindtap="{{item.tap}}" class="ui-info" data-id="{{item.id}}" hover="{{item.hover}}" label="{{labelMap[item.id]}}" next="{{item.next}}" value="{{item.valueMap?item.valueMap[ set[item.id] ]:''}}" valueAlign="{{item.valueAlign}}" wx:if="{{!hideOptional||required[item.id]}}" wx:for="{{formItems}}" wx:key="{{item.id}}">
+                        <input class="info-input" hidden="{{item.inputHidden}}" name="{{item.id}}" type="{{item.inputType}}" value="{{set[item.id]}}" wx:if="{{item.type==='input'}}"></input>
+                        <ui-img class="info-image" mode="widthFix" src="{{newImage[item.id]||set[item.id]}}" wx:else></ui-img>
+                        <view class="info-unit" wx:if="{{item.unit}}">{{item.unit}}</view>
+                        <view class="info-required" slot="after" wx:if="{{!hideOptional&&required[item.id]}}">*</view>
+                    </ui-line>
+                </view>
+                <button class="_clear-button-style common-bottom-btn _hover-brightness-btn" formType="submit" hoverClass="_hover">保存</button>
+                <ui-ipx></ui-ipx>
+            </view>
+        </form>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}" wx:else></ui-status>
+    </block>
+    <ui-login wx:else></ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

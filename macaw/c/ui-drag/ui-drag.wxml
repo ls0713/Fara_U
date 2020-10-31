@@ -1,0 +1,10 @@
+<movable-area class="ui-drag-area">
+    <movable-view inertia bindtouchend="onTouchEnd" bindtouchstart="onTouchStart" class="ui-drag-view" damping="30" direction="horizontal" friction="4" style="{{viewStyle}}" x="{{x}}">
+        <view class="ui-drag-content" style="{{contentStyle}}">
+            <slot name="content"></slot>
+        </view>
+        <view class="ui-drag-expand" style="{{expandStyle}}">
+            <slot name="expand"></slot>
+        </view>
+    </movable-view>
+</movable-area>

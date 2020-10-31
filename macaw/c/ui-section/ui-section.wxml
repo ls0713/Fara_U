@@ -1,0 +1,9 @@
+<view class="ui-section">
+    <ui-line disableTap nextIcon class="ui-entrance" icon="{{icon}}" iconColor="{{iconColor}}" label="{{label}}" value="{{description}}">
+        <slot name="bar-before" slot="before"></slot>
+        <slot name="bar-label" slot="label"></slot>
+        <slot name="bar-description"></slot>
+        <slot name="bar-after" slot="after"></slot>
+    </ui-line>
+    <slot></slot>
+</view>

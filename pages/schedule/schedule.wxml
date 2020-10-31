@@ -1,0 +1,35 @@
+<ui-page id="ui-page">
+    <store-box bindtap="targetActionRun" class="store-box" data-action=">store?id={{store.id}}" slot="top-append" store="{{store}}" wx:if="{{userData&&store}}"></store-box>
+    <ui-login>
+        <ui-status binderrorbtntap="reLoad" status="{{_status.main}}">
+            <view class="main-view">
+                <view class="schedule-days-list-wrap">
+                    <view class="schedule-days-list">
+                        <view bindtap="onDayTap" class="schedule-days-item {{item.thisWeek?'':'_ext'}}" data-index="{{index}}" wx:for="{{daysList}}" wx:key="{{item.id}}">{{item.dayWord}}</view>
+                        <view class="schedule-days-indicator-wrap" style="left:{{100/daysList.length*currentIndex}}%; width:{{100/daysList.length}}%;">
+                            <view class="schedule-days-indicator">
+                                <view class="_week-word">周{{daysList[currentIndex].dayWord}}</view>
+                                <view class="_date">{{daysList[currentIndex].month}}.{{daysList[currentIndex].date}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="schedule-courses">
+                    <swiper skipHiddenItemLayout bindchange="onSwiperChange" class="courses-swiper" current="{{currentIndex}}" duration="300">
+                        <swiper-item wx:for="{{daysList}}" wx:key="{{item.id}}">
+                            <ui-status binderrorbtntap="onPageErrorTap" data-id="{{item.id}}" status="{{_status[item.id]}}">
+                                <scroll-view scrollY class="courses-scroll">
+                                    <view class="courses-list">
+                                        <schedule-item hiddenStore item="{{item}}" wx:for="{{coursesSet[item.id]}}" wx:key="{{item.id}}"></schedule-item>
+                                    </view>
+                                    <ui-ipx></ui-ipx>
+                                </scroll-view>
+                            </ui-status>
+                        </swiper-item>
+                    </swiper>
+                </view>
+            </view>
+        </ui-status>
+    </ui-login>
+</ui-page>
+<ui-shortcut></ui-shortcut>

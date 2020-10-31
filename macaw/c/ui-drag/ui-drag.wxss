@@ -1,0 +1,22 @@
+.ui-drag-area,.ui-drag-view {
+    height: 100%;
+    width: 100%;
+}
+
+.ui-drag-view {
+    display: flex;
+    position: static;
+    align-items: stretch;
+}
+
+.ui-drag-content {
+    width: 100%;
+}
+
+.ui-drag-content,.ui-drag-expand {
+    flex-shrink: 0;
+}
+
+.ui-drag-expand {
+    display: flex;
+}

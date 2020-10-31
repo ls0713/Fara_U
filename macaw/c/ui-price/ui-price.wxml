@@ -1,0 +1,5 @@
+<text class="ui-price">
+    <text class="ui-price-symbol">¥</text>
+    <text class="ui-price-int">{{int}}{{dec?'.':''}}</text>
+    <text class="ui-price-dec">{{dec}}</text>
+</text>
