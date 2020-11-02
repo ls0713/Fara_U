@@ -4,7 +4,7 @@
             <view class="_trems-popup-title">{{title}}</view>
         </view>
         <scroll-view scrollY class="_trems-popup-scroll">
-            <view class="_trems-popup-content">
+            <view style="min-height: 100vh" class="_trems-popup-content">
                 <ui-html nodes="{{nodes}}"></ui-html>
             </view>
         </scroll-view>
